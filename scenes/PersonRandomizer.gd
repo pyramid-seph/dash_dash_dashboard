@@ -23,7 +23,6 @@ func create_random_person() -> PersonDescriptor:
 	person.age = randi_range(MIN_AGE, MAX_AGE)
 	person.eye_color = Utils.rand_item(eye_colors)
 	person.curp = Utils.rand_alphabet_string()
-	print(str(person))
 	return person
 
 
