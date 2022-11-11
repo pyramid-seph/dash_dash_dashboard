@@ -45,7 +45,6 @@ func _ready() -> void:
 	# game ends if time runs out
 	pass
 
-
 #14. remaining built-in virtual methods
 func _unhandled_input(event):
 	if event.is_action_pressed("pause") and _game_state == GameState.PLAYING:

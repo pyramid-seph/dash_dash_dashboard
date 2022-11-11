@@ -22,7 +22,8 @@ func create_random_person() -> PersonDescriptor:
 	person.address = Utils.rand_item(addresses)
 	person.age = randi_range(MIN_AGE, MAX_AGE)
 	person.eye_color = Utils.rand_item(eye_colors)
-	person.curp = "TODO"
+	person.curp = Utils.rand_alphanumeric_string()
+	print(str(person))
 	return person
 
 
@@ -32,7 +33,7 @@ func _create_name(names_source) -> String:
 	for _i in 10:
 		middle_name = Utils.rand_item(names_source)
 		if middle_name != first_name: break
-	return "%s %s" % [first_name, middle_name]
+	return " ".join([first_name, middle_name])
 
 
 func _create_full_name() -> String:
@@ -42,4 +43,4 @@ func _create_full_name() -> String:
 	else:
 		person_name = _create_name(female_names)
 	var last_name: String = "%s %s" % [Utils.rand_item(last_names), Utils.rand_item(last_names)]
-	return "%s %s" % [person_name, last_name]
+	return " ".join([person_name, last_name])
