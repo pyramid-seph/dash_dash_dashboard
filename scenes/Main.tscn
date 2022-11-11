@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmjcxe55tc7rn"]
+
+[ext_resource type="Script" path="res://scenes/Main.gd" id="1_j113n"]
+[ext_resource type="PackedScene" uid="uid://cxa4snp427eur" path="res://scenes/PersonRandomizer.tscn" id="2_iq7nc"]
+
+[node name="Main" type="Node"]
+process_mode = 3
+script = ExtResource("1_j113n")
+
+[node name="PersonRandomizer" parent="." instance=ExtResource("2_iq7nc")]
+
+[node name="World" type="Node2D" parent="."]
+process_mode = 1
+
+[node name="Timer" type="Timer" parent="."]
+process_mode = 1
+one_shot = true
+
+[node name="Ui" type="Node" parent="."]
