@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bmjcxe55tc7rn"]
+[gd_scene load_steps=4 format=3 uid="uid://bmjcxe55tc7rn"]
 
 [ext_resource type="Script" path="res://scenes/Main.gd" id="1_j113n"]
 [ext_resource type="PackedScene" uid="uid://cxa4snp427eur" path="res://scenes/PersonRandomizer.tscn" id="2_iq7nc"]
+[ext_resource type="PackedScene" uid="uid://dkrfe2vld0pi1" path="res://scenes/Gui.tscn" id="3_7318c"]
 
 [node name="Main" type="Node"]
 process_mode = 3
@@ -16,4 +17,6 @@ process_mode = 1
 process_mode = 1
 one_shot = true
 
-[node name="Ui" type="Node" parent="."]
+[node name="GUI" parent="." instance=ExtResource("3_7318c")]
+grow_horizontal = 2
+grow_vertical = 2

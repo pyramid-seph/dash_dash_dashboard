@@ -1,10 +1,12 @@
 extends Node
 
-const ALPHABET = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L",
- "M", "N", "Ñ", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+const ALPHABET: Array[String] = [
+	"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
+	"N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
+]
 
 
-func rand_item(arr: Array):
+func rand_item(arr: Array[Variant]) -> Variant:
 	if arr == null or arr.is_empty():
 		return null
 	return arr[randi() % arr.size()]

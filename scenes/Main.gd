@@ -24,7 +24,7 @@ var _game_state: GameState = GameState.PLAYING
 #11. onready variables
 @onready var world: Node2D = $World
 @onready var timer: Timer = $Timer
-@onready var ui: Node = $Ui
+@onready var gui: Node = $GUI
 @onready var person_randomizer: PersonRandomizer = $PersonRandomizer
 
 #12. optional built-in virtual _init method
@@ -46,7 +46,7 @@ func _ready() -> void:
 	pass
 
 #14. remaining built-in virtual methods
-func _unhandled_input(event):
+func _unhandled_input(event) -> void:
 	if event.is_action_pressed("pause") and _game_state == GameState.PLAYING:
 		get_tree().paused = !get_tree().paused
 

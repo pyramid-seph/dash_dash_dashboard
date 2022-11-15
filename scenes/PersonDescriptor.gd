@@ -25,7 +25,7 @@ var address: String = ""
 var curp: String = ""
 
 
-func  _to_string():
+func  _to_string() -> String:
 	return "PersonDescriptor(name=\"%s\", age=%s, address=\"%s\", CURP=\"%s\",eye_color=%s)" % [name, age, address, curp, eye_color]
 
 

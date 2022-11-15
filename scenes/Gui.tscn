@@ -1,0 +1,240 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkrfe2vld0pi1"]
+
+[ext_resource type="Texture2D" uid="uid://227gbl66x60u" path="res://assets/icon.svg" id="1_vrsff"]
+
+[node name="GUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+offset_right = 1024.0
+offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HUD" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+offset_right = 1024.0
+offset_bottom = 26.0
+size_flags_vertical = 0
+alignment = 1
+
+[node name="Cheems" type="Label" parent="PanelContainer/VBoxContainer/HUD"]
+layout_mode = 2
+offset_right = 338.0
+offset_bottom = 26.0
+size_flags_horizontal = 3
+text = "Cheems: 000"
+
+[node name="Score" type="Label" parent="PanelContainer/VBoxContainer/HUD"]
+layout_mode = 2
+offset_left = 342.0
+offset_right = 681.0
+offset_bottom = 26.0
+size_flags_horizontal = 3
+text = "Score: 999999"
+horizontal_alignment = 1
+
+[node name="ComboCounter" type="Label" parent="PanelContainer/VBoxContainer/HUD"]
+layout_mode = 2
+offset_left = 685.0
+offset_right = 1024.0
+offset_bottom = 26.0
+size_flags_horizontal = 3
+text = "Combo 3 (x1.2) - 999 "
+horizontal_alignment = 2
+
+[node name="GridContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+offset_top = 30.0
+offset_right = 1024.0
+offset_bottom = 720.0
+size_flags_vertical = 3
+
+[node name="ChallengeButtons" type="VBoxContainer" parent="PanelContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+offset_right = 84.0
+offset_bottom = 690.0
+
+[node name="ChallengesLabel" type="Label" parent="PanelContainer/VBoxContainer/GridContainer/ChallengeButtons"]
+layout_mode = 2
+offset_right = 84.0
+offset_bottom = 26.0
+text = "Challenges"
+
+[node name="ChallengeOneButton" type="Button" parent="PanelContainer/VBoxContainer/GridContainer/ChallengeButtons"]
+layout_mode = 2
+offset_top = 30.0
+offset_right = 84.0
+offset_bottom = 61.0
+text = "ONE"
+
+[node name="ChallengeTwoButton" type="Button" parent="PanelContainer/VBoxContainer/GridContainer/ChallengeButtons"]
+layout_mode = 2
+offset_top = 65.0
+offset_right = 84.0
+offset_bottom = 96.0
+text = "TWO"
+
+[node name="ChallengeThreeButton" type="Button" parent="PanelContainer/VBoxContainer/GridContainer/ChallengeButtons"]
+layout_mode = 2
+offset_top = 100.0
+offset_right = 84.0
+offset_bottom = 131.0
+text = "THREE"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+offset_left = 88.0
+offset_right = 1024.0
+offset_bottom = 690.0
+size_flags_horizontal = 3
+
+[node name="ChallengeTabs" type="TabContainer" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer"]
+layout_mode = 2
+offset_right = 936.0
+offset_bottom = 655.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CurpData" type="VBoxContainer" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs"]
+layout_mode = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 31.0
+
+[node name="FullName" type="Label" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/CurpData"]
+layout_mode = 2
+offset_top = 125.0
+offset_right = 936.0
+offset_bottom = 151.0
+size_flags_vertical = 6
+text = "Name: My cool full name"
+
+[node name="Age" type="Label" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/CurpData"]
+layout_mode = 2
+offset_top = 407.0
+offset_right = 936.0
+offset_bottom = 433.0
+size_flags_vertical = 6
+text = "Age: My Cool Age"
+
+[node name="Address" type="Label" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/CurpData"]
+layout_mode = 2
+offset_top = 563.0
+offset_right = 936.0
+offset_bottom = 589.0
+text = "Address My Cool Address"
+
+[node name="CheckBox" type="CheckBox" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/CurpData"]
+layout_mode = 2
+offset_left = 419.0
+offset_top = 593.0
+offset_right = 517.0
+offset_bottom = 624.0
+size_flags_horizontal = 4
+text = "Revisado"
+
+[node name="InputData" type="VBoxContainer" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs"]
+visible = false
+layout_mode = 2
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="FullName" type="Label" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/InputData"]
+layout_mode = 2
+offset_right = 195.0
+offset_bottom = 26.0
+size_flags_vertical = 6
+text = "Name: My othercool full name"
+
+[node name="Age" type="Label" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/InputData"]
+layout_mode = 2
+offset_top = 30.0
+offset_right = 195.0
+offset_bottom = 56.0
+size_flags_vertical = 6
+text = "Age: My Cool Age"
+
+[node name="Address" type="Label" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/InputData"]
+layout_mode = 2
+offset_top = 60.0
+offset_right = 195.0
+offset_bottom = 86.0
+text = "Address My Cool Address"
+
+[node name="CheckBox" type="CheckBox" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/InputData"]
+layout_mode = 2
+offset_left = 48.0
+offset_top = 90.0
+offset_right = 146.0
+offset_bottom = 121.0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Revisado"
+
+[node name="ProofOfLife" type="VBoxContainer" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs"]
+visible = false
+layout_mode = 2
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Video" type="CenterContainer" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/ProofOfLife"]
+layout_mode = 2
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/ProofOfLife/Video"]
+layout_mode = 2
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 20.0
+offset_bottom = 20.0
+texture = ExtResource("1_vrsff")
+
+[node name="CheckBox" type="CheckBox" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/ProofOfLife"]
+layout_mode = 2
+offset_left = 48.0
+offset_top = 90.0
+offset_right = 146.0
+offset_bottom = 121.0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Revisado"
+
+[node name="CommitmentButtons" type="HBoxContainer" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer"]
+layout_mode = 2
+offset_top = 659.0
+offset_right = 936.0
+offset_bottom = 690.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="RejectButton" type="Button" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/CommitmentButtons"]
+layout_mode = 2
+offset_right = 466.0
+offset_bottom = 31.0
+size_flags_horizontal = 3
+text = "Rechazar"
+
+[node name="AcceptButton" type="Button" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/CommitmentButtons"]
+layout_mode = 2
+offset_left = 470.0
+offset_right = 936.0
+offset_bottom = 31.0
+size_flags_horizontal = 3
+text = "Aceptar
+"

@@ -1,4 +1,5 @@
-res://scenes/PersonRandomizer.tscn
-res://autoload/Utils.gd
-res://scenes/PersonRandomizer.gd
 res://scenes/Main.tscn
+res://scenes/Main.gd
+res://scenes/PersonDescriptor.gd
+res://autoload/Utils.gd
+res://scenes/Gui.tscn

@@ -1,3 +1,16 @@
+TextureRect
+PanelContainer
+VBoxContainer
+CenterContainer
+Sprite2D
+Label
+HBoxContainer
+Button
+GridContainer
+CheckBox
+Container
+GPUParticlesAttractorSphere3D
+TabContainer
 Node
 Control
 Timer
