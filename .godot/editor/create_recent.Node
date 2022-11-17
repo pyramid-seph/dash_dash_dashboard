@@ -1,9 +1,10 @@
-TextureRect
+Label
 PanelContainer
+MarginContainer
+TextureRect
 VBoxContainer
 CenterContainer
 Sprite2D
-Label
 HBoxContainer
 Button
 GridContainer

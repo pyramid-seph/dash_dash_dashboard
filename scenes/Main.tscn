@@ -10,13 +10,12 @@ script = ExtResource("1_j113n")
 
 [node name="PersonRandomizer" parent="." instance=ExtResource("2_iq7nc")]
 
-[node name="World" type="Node2D" parent="."]
-process_mode = 1
-
 [node name="Timer" type="Timer" parent="."]
 process_mode = 1
 one_shot = true
 
 [node name="GUI" parent="." instance=ExtResource("3_7318c")]
-grow_horizontal = 2
-grow_vertical = 2
+process_mode = 1
+
+[connection signal="on_request_accepted" from="GUI" to="." method="_on_gui_on_request_accepted"]
+[connection signal="on_request_rejected" from="GUI" to="." method="_on_gui_on_request_rejected"]

@@ -18,10 +18,16 @@ _global_script_classes=[{
 "class": &"PersonRandomizer",
 "language": &"GDScript",
 "path": "res://scenes/PersonRandomizer.gd"
+}, {
+"base": "RefCounted",
+"class": &"RequestChallenge",
+"language": &"GDScript",
+"path": "res://scenes/RequestChallenge.gd"
 }]
 _global_script_class_icons={
 "PersonDescriptor": "",
-"PersonRandomizer": ""
+"PersonRandomizer": "",
+"RequestChallenge": ""
 }
 
 [application]
