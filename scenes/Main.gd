@@ -1,5 +1,5 @@
 extends Node
-
+# TODO Stamina system
 
 enum GameState {
 	PLAYING,
@@ -64,23 +64,25 @@ func _setup_next_request_challenge() -> void:
 
 func _on_gui_on_request_rejected() -> void:
 	if _current_request_challenge == null:
-		print("No challenge to check. This should not happen.")
+		print("No challenge to check. Creating a new one.")
+		_setup_next_request_challenge()
 		return
+		
 	if _current_request_challenge.should_be_accepted():
 		print("You lose! ")
 	else:
 		print("You win! ")
-	_current_request_challenge = _create_request_challenge()
+	_setup_next_request_challenge()
 
 
 func _on_gui_on_request_accepted() -> void:
 	if _current_request_challenge == null:
-		print("No challenge to check. Skipping.")
+		print("No challenge to check. Creating a new one.")
 		_setup_next_request_challenge()
 		return
-
+		
 	if _current_request_challenge.should_be_accepted():
-		print("You win! ")
+		print("You win!")
 	else:
-		print("You lose! ")
+		print("You lose!")
 	_setup_next_request_challenge()

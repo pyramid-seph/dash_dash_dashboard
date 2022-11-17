@@ -1,7 +1,2 @@
 res://scenes/Main.tscn
-res://scenes/Gui.gd
 res://scenes/Main.gd
-res://scenes/Gui.tscn
-res://scenes/PersonDescriptor.gd
-res://scenes/UserDataTab.gd
-res://scenes/CurpQueryTab.gd
