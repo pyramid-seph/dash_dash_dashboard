@@ -8,6 +8,7 @@ signal on_request_rejected
 @onready var proof_of_life_tab = %ProofOfLifeTab
 @onready var debug := $DebugPanel/Debug as Label
 @onready var pause_panel = $PausePanel
+@onready var cheems := $PanelContainer/VBoxContainer/HUD/Cheems as Label
 
 
 var request_challenge: RequestChallenge:
@@ -29,6 +30,10 @@ var request_challenge: RequestChallenge:
 
 func show_pause_panel(paused: bool) -> void:
 	pause_panel.visible = paused
+
+
+func update_stamina_meter(stamina: float) -> void:
+	cheems.text = str(int(stamina * 100.0))
 
 
 func _on_accept_button_pressed() -> void:

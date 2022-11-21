@@ -23,11 +23,17 @@ _global_script_classes=[{
 "class": &"RequestChallenge",
 "language": &"GDScript",
 "path": "res://scenes/RequestChallenge.gd"
+}, {
+"base": "Node",
+"class": &"TimedClampedValue",
+"language": &"GDScript",
+"path": "res://scenes/TimedClampedValue.gd"
 }]
 _global_script_class_icons={
 "PersonDescriptor": "",
 "PersonRandomizer": "",
-"RequestChallenge": ""
+"RequestChallenge": "",
+"TimedClampedValue": ""
 }
 
 [application]

@@ -2,17 +2,14 @@ extends Node
 # TODO Stamina system
 
 enum GameState {
-	PLAYING,
-	GAME_OVER,
+	Playing,
+	GameOver,
 }
 
 
-@export var stamina_depletion_rate: int = 0
-@export var stamina_gain_rate: int = 0
-@export var stamina_gain_per_correct_answer: int = 0
 @export var points_per_correct_answer: int = 100
 
-var _game_state: GameState = GameState.PLAYING
+var _game_state: GameState = GameState.Playing
 var _current_request_challenge: RequestChallenge:
 	get:
 		return _current_request_challenge
@@ -23,14 +20,18 @@ var _current_request_challenge: RequestChallenge:
 @onready var timer: Timer = $Timer
 @onready var gui := $GUI
 @onready var person_randomizer: PersonRandomizer = $PersonRandomizer
+@onready var stamina_value = $StaminaValue as TimedClampedValue
 
 
 func _ready() -> void:
 	_setup_next_request_challenge()
+	stamina_value.on_value_changed.connect(func (new_val: float): gui.update_stamina_meter(new_val))
+	stamina_value.on_total_depletion.connect(func (_new_val: float): print("TOTALLY DEPLETED!"))
+	stamina_value.start()
 
 
 func _unhandled_input(event) -> void:
-	if event.is_action_pressed("pause") and _game_state == GameState.PLAYING:
+	if event.is_action_pressed("pause") and _game_state == GameState.Playing:
 		get_tree().paused = !get_tree().paused
 		gui.show_pause_panel(get_tree().paused)
 
