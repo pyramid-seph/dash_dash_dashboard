@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bmjcxe55tc7rn"]
+[gd_scene load_steps=4 format=3 uid="uid://bmjcxe55tc7rn"]
 
 [ext_resource type="Script" path="res://scenes/Main.gd" id="1_j113n"]
 [ext_resource type="PackedScene" uid="uid://cxa4snp427eur" path="res://scenes/PersonRandomizer.tscn" id="2_iq7nc"]
-[ext_resource type="PackedScene" uid="uid://8bqbvisgdxdw" path="res://scenes/TimedClampedValue.tscn" id="3_6pydo"]
 [ext_resource type="PackedScene" uid="uid://dkrfe2vld0pi1" path="res://scenes/Gui.tscn" id="3_7318c"]
 
 [node name="Main" type="Node"]
@@ -11,15 +10,14 @@ script = ExtResource("1_j113n")
 
 [node name="PersonRandomizer" parent="." instance=ExtResource("2_iq7nc")]
 
-[node name="StaminaValue" parent="." instance=ExtResource("3_6pydo")]
+[node name="StaminaTimer" type="Timer" parent="."]
 process_mode = 1
-
-[node name="Timer" type="Timer" parent="."]
-process_mode = 1
+wait_time = 60.0
 one_shot = true
 
 [node name="GUI" parent="." instance=ExtResource("3_7318c")]
 process_mode = 1
 
+[connection signal="timeout" from="StaminaTimer" to="." method="_on_stamina_timer_timeout"]
 [connection signal="on_request_accepted" from="GUI" to="." method="_on_gui_on_request_accepted"]
 [connection signal="on_request_rejected" from="GUI" to="." method="_on_gui_on_request_rejected"]

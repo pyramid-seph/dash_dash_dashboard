@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bv461yb223ri1"]
+
+[ext_resource type="Script" path="res://scenes/ClampedTime.gd" id="1_pnbdt"]
+
+[node name="ClampedTime" type="Node"]
+script = ExtResource("1_pnbdt")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

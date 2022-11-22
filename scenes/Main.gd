@@ -1,5 +1,5 @@
 extends Node
-# TODO Stamina system
+
 
 enum GameState {
 	Playing,
@@ -7,7 +7,9 @@ enum GameState {
 }
 
 
-@export var points_per_correct_answer: int = 100
+@export var initial_stamina_sec: float = 60.0
+@export var stamina_gain_sec: float = 10.0
+@export var stamina_lose_sec: float = 5.0
 
 var _game_state: GameState = GameState.Playing
 var _current_request_challenge: RequestChallenge:
@@ -20,20 +22,22 @@ var _current_request_challenge: RequestChallenge:
 @onready var timer: Timer = $Timer
 @onready var gui := $GUI
 @onready var person_randomizer: PersonRandomizer = $PersonRandomizer
-@onready var stamina_value = $StaminaValue as TimedClampedValue
+@onready var stamina_timer = $StaminaTimer as Timer
 
 
 func _ready() -> void:
 	_setup_next_request_challenge()
-	stamina_value.on_value_changed.connect(func (new_val: float): gui.update_stamina_meter(new_val))
-	stamina_value.on_total_depletion.connect(func (_new_val: float): print("TOTALLY DEPLETED!"))
-	stamina_value.start()
+	stamina_timer.start(initial_stamina_sec)
 
 
 func _unhandled_input(event) -> void:
 	if event.is_action_pressed("pause") and _game_state == GameState.Playing:
 		get_tree().paused = !get_tree().paused
 		gui.show_pause_panel(get_tree().paused)
+
+
+func _process(_delta) -> void:
+	gui.update_stamina_meter(stamina_timer.time_left)
 
 
 func _create_request_challenge() -> RequestChallenge:
@@ -60,7 +64,21 @@ func _create_request_challenge() -> RequestChallenge:
 
 
 func _setup_next_request_challenge() -> void:
-	_current_request_challenge = _create_request_challenge()
+	if not stamina_timer.is_stopped() and _game_state != GameState.GameOver:
+		_current_request_challenge = _create_request_challenge()
+
+
+func extend_stamina(time_sec: float = stamina_gain_sec) -> void:
+	var new_stamina = minf(stamina_timer.time_left + time_sec, initial_stamina_sec)
+	stamina_timer.start(new_stamina)
+
+
+func deplete_stamina(time_sec: float = stamina_lose_sec) -> void:
+	var new_stamina = stamina_timer.time_left - time_sec
+	if new_stamina <= 0.0:
+		stamina_timer.stop()
+	else:
+		stamina_timer.start(new_stamina)
 
 
 func _on_gui_on_request_rejected() -> void:
@@ -70,20 +88,26 @@ func _on_gui_on_request_rejected() -> void:
 		return
 		
 	if _current_request_challenge.should_be_accepted():
-		print("You lose! ")
+		deplete_stamina()
 	else:
-		print("You win! ")
+		extend_stamina()
 	_setup_next_request_challenge()
 
 
 func _on_gui_on_request_accepted() -> void:
+	if _game_state != GameState.Playing: return
+	
 	if _current_request_challenge == null:
 		print("No challenge to check. Creating a new one.")
 		_setup_next_request_challenge()
 		return
 		
 	if _current_request_challenge.should_be_accepted():
-		print("You win!")
+		extend_stamina()
 	else:
-		print("You lose!")
-	_setup_next_request_challenge()
+		deplete_stamina()
+		_setup_next_request_challenge()
+
+
+func _on_stamina_timer_timeout():
+	_game_state = GameState.GameOver

@@ -1,6 +1,4 @@
+res://scenes/ClampedTime.tscn
+res://scenes/ClampedTime.gd
 res://scenes/Main.tscn
 res://scenes/Main.gd
-res://scenes/TimedClampedValue.tscn
-res://scenes/Gui.tscn
-res://scenes/TimedClampedValue.gd
-res://scenes/Gui.gd

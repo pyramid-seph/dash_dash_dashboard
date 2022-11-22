@@ -9,6 +9,11 @@
 config_version=5
 
 _global_script_classes=[{
+"base": "Node",
+"class": &"ClampedTime",
+"language": &"GDScript",
+"path": "res://scenes/ClampedTime.gd"
+}, {
 "base": "RefCounted",
 "class": &"PersonDescriptor",
 "language": &"GDScript",
@@ -30,6 +35,7 @@ _global_script_classes=[{
 "path": "res://scenes/TimedClampedValue.gd"
 }]
 _global_script_class_icons={
+"ClampedTime": "",
 "PersonDescriptor": "",
 "PersonRandomizer": "",
 "RequestChallenge": "",
