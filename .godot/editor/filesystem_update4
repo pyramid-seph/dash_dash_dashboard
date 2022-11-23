@@ -1,5 +1,2 @@
-res://scenes/ClampedTime.tscn
-res://scenes/ClampedTime.gd
-res://scenes/Main.gd
 res://scenes/Main.tscn
-res://scenes/Gui.gd
+res://scenes/ClampedTime.gd

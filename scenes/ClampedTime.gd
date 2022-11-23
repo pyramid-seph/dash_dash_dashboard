@@ -21,10 +21,14 @@ var paused: bool:
 
 
 func start(time_sec: float = max_wait_time) -> void:
-	if paused: return
+	if paused:
+		print_debug("Ignored start() because timer is paused: %s" % time_sec)
+		return
 	if time_sec > 0:
 		max_wait_time = time_sec
 		timer.start(time_sec)
+	else:
+		print_debug("Ignored start() because time_sec is negative or zero: %s" % time_sec)
 
 
 func stop() -> void:
