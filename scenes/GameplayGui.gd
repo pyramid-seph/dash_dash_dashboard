@@ -1,3 +1,4 @@
+class_name GameplayGui
 extends Control
 
 signal on_request_accepted

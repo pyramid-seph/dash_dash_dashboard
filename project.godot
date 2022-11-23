@@ -14,6 +14,11 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://scenes/ClampedTime.gd"
 }, {
+"base": "Control",
+"class": &"GameplayGui",
+"language": &"GDScript",
+"path": "res://scenes/GameplayGui.gd"
+}, {
 "base": "RefCounted",
 "class": &"PersonDescriptor",
 "language": &"GDScript",
@@ -28,18 +33,13 @@ _global_script_classes=[{
 "class": &"RequestChallenge",
 "language": &"GDScript",
 "path": "res://scenes/RequestChallenge.gd"
-}, {
-"base": "Node",
-"class": &"TimedClampedValue",
-"language": &"GDScript",
-"path": "res://scenes/TimedClampedValue.gd"
 }]
 _global_script_class_icons={
 "ClampedTime": "",
+"GameplayGui": "",
 "PersonDescriptor": "",
 "PersonRandomizer": "",
-"RequestChallenge": "",
-"TimedClampedValue": ""
+"RequestChallenge": ""
 }
 
 [application]

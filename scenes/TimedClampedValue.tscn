@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://8bqbvisgdxdw"]
-
-[ext_resource type="Script" path="res://scenes/TimedClampedValue.gd" id="1_r64kf"]
-
-[node name="TimedClampedValue" type="Node"]
-script = ExtResource("1_r64kf")

@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://dkrfe2vld0pi1"]
+[gd_scene load_steps=6 format=3]
 
-[ext_resource type="Script" path="res://scenes/Gui.gd" id="1_6yfmw"]
+[ext_resource type="Script" path="res://scenes/GameplayGui.gd" id="1_6yfmw"]
 [ext_resource type="Texture2D" uid="uid://227gbl66x60u" path="res://assets/icon.svg" id="1_vrsff"]
 [ext_resource type="Script" path="res://scenes/CurpQueryTab.gd" id="2_kph81"]
 [ext_resource type="Script" path="res://scenes/UserDataTab.gd" id="3_g15n0"]

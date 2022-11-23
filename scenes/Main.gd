@@ -2,42 +2,41 @@ extends Node
 
 
 enum GameState {
-	Playing,
-	GameOver,
+	PLAYING,
+	GAME_OVER,
 }
 
 
-@export var initial_stamina_sec: float = 60.0
+@export var stamina_sec: float = 60.0
 @export var stamina_gain_sec: float = 10.0
 @export var stamina_lose_sec: float = 5.0
 
-var _game_state: GameState = GameState.Playing
+var _game_state: GameState = GameState.PLAYING
 var _current_request_challenge: RequestChallenge:
 	get:
 		return _current_request_challenge
 	set(value):
 		_current_request_challenge = value
-		gui.request_challenge = value
+		gameplay_gui.request_challenge = value
 
-@onready var timer: Timer = $Timer
-@onready var gui := $GUI
-@onready var person_randomizer: PersonRandomizer = $PersonRandomizer
-@onready var stamina_timer = $StaminaTimer as Timer
+@onready var gameplay_gui := $GameplayGui as GameplayGui
+@onready var person_randomizer := $PersonRandomizer as PersonRandomizer
+@onready var stamina_timer := $StaminaTimer as ClampedTime
 
 
 func _ready() -> void:
 	_setup_next_request_challenge()
-	stamina_timer.start(initial_stamina_sec)
+	stamina_timer.start(stamina_sec)
 
 
 func _unhandled_input(event) -> void:
-	if event.is_action_pressed("pause") and _game_state == GameState.Playing:
+	if event.is_action_pressed("pause") and _game_state == GameState.PLAYING:
 		get_tree().paused = !get_tree().paused
-		gui.show_pause_panel(get_tree().paused)
+		gameplay_gui.show_pause_panel(get_tree().paused)
 
 
 func _process(_delta) -> void:
-	gui.update_stamina_meter(stamina_timer.time_left)
+	gameplay_gui.update_stamina_meter(stamina_timer.time_left)
 
 
 func _create_request_challenge() -> RequestChallenge:
@@ -64,38 +63,25 @@ func _create_request_challenge() -> RequestChallenge:
 
 
 func _setup_next_request_challenge() -> void:
-	if not stamina_timer.is_stopped() and _game_state != GameState.GameOver:
+	if not stamina_timer.is_stopped() and _game_state != GameState.GAME_OVER:
 		_current_request_challenge = _create_request_challenge()
 
 
-func extend_stamina(time_sec: float = stamina_gain_sec) -> void:
-	var new_stamina = minf(stamina_timer.time_left + time_sec, initial_stamina_sec)
-	stamina_timer.start(new_stamina)
-
-
-func deplete_stamina(time_sec: float = stamina_lose_sec) -> void:
-	var new_stamina = stamina_timer.time_left - time_sec
-	if new_stamina <= 0.0:
-		stamina_timer.stop()
-	else:
-		stamina_timer.start(new_stamina)
-
-
-func _on_gui_on_request_rejected() -> void:
+func _on_gameplay_gui_on_request_rejected() -> void:
 	if _current_request_challenge == null:
 		print("No challenge to check. Creating a new one.")
 		_setup_next_request_challenge()
 		return
 		
 	if _current_request_challenge.should_be_accepted():
-		deplete_stamina()
+		stamina_timer.remove_time(stamina_lose_sec)
 	else:
-		extend_stamina()
+		stamina_timer.add_time(stamina_gain_sec)
 	_setup_next_request_challenge()
 
 
-func _on_gui_on_request_accepted() -> void:
-	if _game_state != GameState.Playing: return
+func _on_gameplay_gui_on_request_accepted() -> void:
+	if _game_state != GameState.PLAYING: return
 	
 	if _current_request_challenge == null:
 		print("No challenge to check. Creating a new one.")
@@ -103,11 +89,12 @@ func _on_gui_on_request_accepted() -> void:
 		return
 		
 	if _current_request_challenge.should_be_accepted():
-		extend_stamina()
+		stamina_timer.add_time(stamina_gain_sec)
 	else:
-		deplete_stamina()
+		stamina_timer.remove_time(stamina_lose_sec)
 		_setup_next_request_challenge()
 
 
-func _on_stamina_timer_timeout():
-	_game_state = GameState.GameOver
+func _on_stamina_timer_timeout() -> void:
+	_game_state = GameState.GAME_OVER
+	print("GAME OVER!")
