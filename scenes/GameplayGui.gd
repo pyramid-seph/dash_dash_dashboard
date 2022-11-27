@@ -11,6 +11,7 @@ signal on_request_rejected
 @onready var pause_panel = $PausePanel
 @onready var cheems := %StaminaTimer as Label
 @onready var request_combo_counter := %RequestComboCounter as Label
+@onready var score := %Score as Label
 
 
 var request_challenge: RequestChallenge:
@@ -28,6 +29,10 @@ var request_challenge: RequestChallenge:
 			user_data_tab.person_descriptor = value.original_person
 			proof_of_life_tab.person_descriptor = value.proof_of_life_person
 			debug.text = "\n".join([str(value.original_person), "accept?: %s" % str(value.should_be_accepted())])
+
+
+func update_score(points: int) -> void:
+	score.text = "Score: %s" % points
 
 
 func update_request_combo_counter(time_left: float, multiplier: float) -> void:

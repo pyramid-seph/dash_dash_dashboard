@@ -10,7 +10,9 @@ enum GameState {
 @export var stamina_sec: float = 60.0
 @export var stamina_gain_sec: float = 10.0
 @export var stamina_lose_sec: float = 5.0
+@export var base_points_successful_request: int = 100
 
+var _current_score: int = 0
 var _game_state: GameState = GameState.PLAYING
 var _current_request_challenge: RequestChallenge:
 	get:
@@ -26,9 +28,10 @@ var _current_request_challenge: RequestChallenge:
 
 
 func _ready() -> void:
+	_current_score = 0
 	_setup_next_request_challenge()
 	stamina_timer.start(stamina_sec)
-	request_combo_mngr.multiplier_delta = 0.5
+	gameplay_gui.update_score(_current_score)
 
 
 func _unhandled_input(event) -> void:
@@ -71,17 +74,33 @@ func _setup_next_request_challenge() -> void:
 		_current_request_challenge = _create_request_challenge()
 
 
+func _on_correct_request_guess() -> void:
+	stamina_timer.add_time(stamina_gain_sec)
+	request_combo_mngr.extend_combo_time()
+	var points: int = int(
+		base_points_successful_request * request_combo_mngr.multiplier
+	)
+	_current_score += points
+	gameplay_gui.update_score(_current_score)
+
+
+func _on_failed_request_guess() -> void:
+	stamina_timer.remove_time(stamina_lose_sec)
+	request_combo_mngr.break_combo()
+
+
 func _on_gameplay_gui_on_request_rejected() -> void:
+	if _game_state != GameState.PLAYING: return
+	
 	if _current_request_challenge == null:
 		print("No challenge to check. Creating a new one.")
 		_setup_next_request_challenge()
 		return
 		
 	if _current_request_challenge.should_be_accepted():
-		stamina_timer.remove_time(stamina_lose_sec)
+		_on_failed_request_guess()
 	else:
-		stamina_timer.add_time(stamina_gain_sec)
-		request_combo_mngr.extend_combo_time()
+		_on_correct_request_guess()
 	_setup_next_request_challenge()
 
 
@@ -94,10 +113,9 @@ func _on_gameplay_gui_on_request_accepted() -> void:
 		return
 		
 	if _current_request_challenge.should_be_accepted():
-		stamina_timer.add_time(stamina_gain_sec)
-		request_combo_mngr.extend_combo_time()
+		_on_correct_request_guess()
 	else:
-		stamina_timer.remove_time(stamina_lose_sec)
+		_on_failed_request_guess()
 	_setup_next_request_challenge()
 
 
@@ -106,9 +124,9 @@ func _on_stamina_timer_timeout() -> void:
 	print("GAME OVER!")
 
 
-func _on_request_combo_manager_combo_started() -> void:
+func _on_request_combo_manager_combo_started(_multiplier, _consecutive_extensions) -> void:
 	gameplay_gui.show_request_combo_counter(true)
 
 
-func _on_request_combo_manager_combo_finished() -> void:
+func _on_request_combo_manager_combo_broken():
 	gameplay_gui.show_request_combo_counter(false)
