@@ -1,2 +1,6 @@
+res://scenes/ComboManager.tscn
+res://scenes/Main.gd
+res://scenes/ComboManager.gd
 res://scenes/Main.tscn
-res://scenes/ClampedTime.tscn
+res://scenes/GameplayGui.tscn
+res://scenes/GameplayGui.gd

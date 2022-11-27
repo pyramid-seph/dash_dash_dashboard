@@ -22,11 +22,13 @@ var _current_request_challenge: RequestChallenge:
 @onready var gameplay_gui := $GameplayGui as GameplayGui
 @onready var person_randomizer := $PersonRandomizer as PersonRandomizer
 @onready var stamina_timer := $StaminaTimer as ClampedTime
+@onready var request_combo_mngr := $RequestComboManager as ComboManager
 
 
 func _ready() -> void:
 	_setup_next_request_challenge()
 	stamina_timer.start(stamina_sec)
+	request_combo_mngr.multiplier_delta = 0.5
 
 
 func _unhandled_input(event) -> void:
@@ -37,6 +39,8 @@ func _unhandled_input(event) -> void:
 
 func _process(_delta) -> void:
 	gameplay_gui.update_stamina_meter(stamina_timer.time_left)
+	gameplay_gui.update_request_combo_counter(request_combo_mngr.time_left,\
+		request_combo_mngr.multiplier)
 
 
 func _create_request_challenge() -> RequestChallenge:
@@ -63,7 +67,7 @@ func _create_request_challenge() -> RequestChallenge:
 
 
 func _setup_next_request_challenge() -> void:
-	if not stamina_timer.is_stopped() and _game_state != GameState.GAME_OVER:
+	if _game_state != GameState.GAME_OVER:
 		_current_request_challenge = _create_request_challenge()
 
 
@@ -77,6 +81,7 @@ func _on_gameplay_gui_on_request_rejected() -> void:
 		stamina_timer.remove_time(stamina_lose_sec)
 	else:
 		stamina_timer.add_time(stamina_gain_sec)
+		request_combo_mngr.extend_combo_time()
 	_setup_next_request_challenge()
 
 
@@ -90,11 +95,20 @@ func _on_gameplay_gui_on_request_accepted() -> void:
 		
 	if _current_request_challenge.should_be_accepted():
 		stamina_timer.add_time(stamina_gain_sec)
+		request_combo_mngr.extend_combo_time()
 	else:
 		stamina_timer.remove_time(stamina_lose_sec)
-		_setup_next_request_challenge()
+	_setup_next_request_challenge()
 
 
 func _on_stamina_timer_timeout() -> void:
 	_game_state = GameState.GAME_OVER
 	print("GAME OVER!")
+
+
+func _on_request_combo_manager_combo_started() -> void:
+	gameplay_gui.show_request_combo_counter(true)
+
+
+func _on_request_combo_manager_combo_finished() -> void:
+	gameplay_gui.show_request_combo_counter(false)

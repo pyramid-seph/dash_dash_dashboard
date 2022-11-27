@@ -12,7 +12,12 @@ _global_script_classes=[{
 "base": "Node",
 "class": &"ClampedTime",
 "language": &"GDScript",
-"path": "res://scenes/ClampedTime.gd"
+"path": "res://scenes/ClampedTimer.gd"
+}, {
+"base": "Node",
+"class": &"ComboManager",
+"language": &"GDScript",
+"path": "res://scenes/ComboManager.gd"
 }, {
 "base": "Control",
 "class": &"GameplayGui",
@@ -36,6 +41,7 @@ _global_script_classes=[{
 }]
 _global_script_class_icons={
 "ClampedTime": "",
+"ComboManager": "",
 "GameplayGui": "",
 "PersonDescriptor": "",
 "PersonRandomizer": "",

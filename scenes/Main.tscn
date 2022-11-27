@@ -1,21 +1,32 @@
-[gd_scene load_steps=5 format=3 uid="uid://bytsailhjvbiw"]
+[gd_scene load_steps=6 format=3 uid="uid://hmw0pui1jj74"]
 
 [ext_resource type="Script" path="res://scenes/Main.gd" id="1_j113n"]
 [ext_resource type="PackedScene" uid="uid://cxa4snp427eur" path="res://scenes/PersonRandomizer.tscn" id="2_iq7nc"]
-[ext_resource type="PackedScene" path="res://scenes/GameplayGui.tscn" id="3_7318c"]
-[ext_resource type="PackedScene" uid="uid://bv461yb223ri1" path="res://scenes/ClampedTime.tscn" id="3_c5wss"]
+[ext_resource type="PackedScene" uid="uid://cdd2qox50mycb" path="res://scenes/GameplayGui.tscn" id="3_7318c"]
+[ext_resource type="PackedScene" uid="uid://bqjywyns0o5n8" path="res://scenes/ClampedTimer.tscn" id="3_c5wss"]
+[ext_resource type="PackedScene" uid="uid://hq3mhsieof3k" path="res://scenes/ComboManager.tscn" id="5_gnrff"]
 
 [node name="Main" type="Node"]
 process_mode = 3
 script = ExtResource("1_j113n")
 
 [node name="PersonRandomizer" parent="." instance=ExtResource("2_iq7nc")]
+process_mode = 1
 
 [node name="StaminaTimer" parent="." instance=ExtResource("3_c5wss")]
+process_mode = 1
+
+[node name="RequestComboManager" parent="." instance=ExtResource("5_gnrff")]
+process_mode = 1
+duration_sec = 5.0
+max_multiplier = 3.0
+multiplier_delta = 0.1
 
 [node name="GameplayGui" parent="." instance=ExtResource("3_7318c")]
 process_mode = 1
 
 [connection signal="timeout" from="StaminaTimer" to="." method="_on_stamina_timer_timeout"]
+[connection signal="combo_finished" from="RequestComboManager" to="." method="_on_request_combo_manager_combo_finished"]
+[connection signal="combo_started" from="RequestComboManager" to="." method="_on_request_combo_manager_combo_started"]
 [connection signal="on_request_accepted" from="GameplayGui" to="." method="_on_gameplay_gui_on_request_accepted"]
 [connection signal="on_request_rejected" from="GameplayGui" to="." method="_on_gameplay_gui_on_request_rejected"]
