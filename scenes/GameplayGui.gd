@@ -8,7 +8,8 @@ signal on_request_rejected
 @onready var user_data_tab = %UserDataTab
 @onready var proof_of_life_tab = %ProofOfLifeTab
 @onready var debug := $DebugPanel/Debug as Label
-@onready var pause_panel = $PausePanel
+@onready var pause_panel = $PausePanel as PanelContainer
+@onready var game_over_panel = $GameOverPanel as PanelContainer
 @onready var cheems := %StaminaTimer as Label
 @onready var request_combo_counter := %RequestComboCounter as Label
 @onready var score := %Score as Label
@@ -45,6 +46,10 @@ func show_request_combo_counter(should_show: bool) -> void:
 
 func show_pause_panel(paused: bool) -> void:
 	pause_panel.visible = paused
+
+
+func show_game_over_panel(should_show: bool) -> void:
+	game_over_panel.visible = should_show
 
 
 func update_stamina_meter(stamina: float) -> void:

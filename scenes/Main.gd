@@ -122,7 +122,7 @@ func _on_gameplay_gui_on_request_accepted() -> void:
 
 func _on_stamina_timer_timeout() -> void:
 	_game_state = GameState.GAME_OVER
-	print("GAME OVER!")
+	gameplay_gui.show_game_over_panel(true)
 
 
 func _on_request_combo_manager_combo_started(_multiplier, _consecutive_extensions) -> void:
