@@ -1,6 +1,7 @@
 class_name RequestChallenge
 extends RefCounted
 
+var person_data_source: PersonDataSource
 var curp_query_person: PersonDescriptor
 var original_person: PersonDescriptor
 var proof_of_life_person: PersonDescriptor

@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://hmw0pui1jj74"]
+[gd_scene load_steps=6 format=3 uid="uid://beyapgb182e3y"]
 
 [ext_resource type="Script" path="res://scenes/Main.gd" id="1_j113n"]
-[ext_resource type="PackedScene" uid="uid://cxa4snp427eur" path="res://scenes/PersonRandomizer.tscn" id="2_iq7nc"]
+[ext_resource type="PackedScene" path="res://scenes/PersonRandomizer.tscn" id="2_iq7nc"]
 [ext_resource type="PackedScene" uid="uid://cdd2qox50mycb" path="res://scenes/GameplayGui.tscn" id="3_7318c"]
 [ext_resource type="PackedScene" uid="uid://bqjywyns0o5n8" path="res://scenes/ClampedTimer.tscn" id="3_c5wss"]
 [ext_resource type="PackedScene" uid="uid://hq3mhsieof3k" path="res://scenes/ComboManager.tscn" id="5_gnrff"]

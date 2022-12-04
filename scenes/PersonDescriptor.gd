@@ -13,12 +13,12 @@ const DESCRIPTION_AGE = "DESCRIPTION_AGE"
 const DESCRIPTION_ADDRESS = "DESCRIPTION_ADDRESS"
 const DESCRIPTION_CURP = "DESCRIPTION_CURP"
 
-var body_type: String = ""
-var head_type: String = ""
-var eye_type: String = ""
+var body_type: int = 0
+var head_type: int = 0
+var eye_type: int = 0
 var eye_color: Color = Color.BLACK
-var nose_type: String = ""
-var mouth_type: String = ""
+var nose_type: int = 0
+var mouth_type: int = 0
 var name: String = ""
 var age: int = 0
 var address: String = ""

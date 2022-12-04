@@ -1,28 +1,23 @@
 class_name PersonRandomizer
 extends Node
 
-const MIN_AGE = 18
-const MAX_AGE = 100
+const MIN_AGE: int = 18
+const MAX_AGE: int = 100
 
-@export var body_types: Array[String] = []
-@export var head_types: Array[String] = []
-@export var eye_types: Array[String] = []
-@export var eye_colors: Array[Color] = [Color.GREEN, Color.RED, Color.BLUE, Color.BLACK, Color.BROWN]
-@export var nose_types: Array[String] = []
-@export var mouth_types: Array[String] = []
-@export var male_names : Array[String] = ["Juan", "Tito", "Mario"]
-@export var female_names : Array[String] = ["Giselle", "Té", "Fabiola"]
-@export var last_names : Array[String] = ["Morales", "Pintor", "Ceh", "Pech", "Pérez"]
-@export var addresses : Array[String] = ["Avenida Siempre Viva", "Avenida Siempre Muerta", "Elm Street"]
+@export var person_data_source: Resource
 
 
 func create_random_person() -> PersonDescriptor:
 	var person = PersonDescriptor.new()
 	person.name = _create_full_name()
-	person.address = Utils.rand_item(addresses)
+	person.address = Utils.rand_item(person_data_source.addresses)
 	person.age = randi_range(MIN_AGE, MAX_AGE)
-	person.eye_color = Utils.rand_item(eye_colors)
+	person.eye_color = Utils.rand_item(person_data_source.eye_colors)
 	person.curp = Utils.rand_alphabet_string()
+	person.eye_type = randi() % person_data_source.eye_types.size()
+	person.head_type = randi() % person_data_source.head_types.size()
+	person.mouth_type = randi() % person_data_source.mouth_types.size()
+	person.nose_type = randi() % person_data_source.nose_types.size()
 	return person
 
 
@@ -38,8 +33,11 @@ func _create_name(names_source) -> String:
 func _create_full_name() -> String:
 	var person_name: String
 	if (randi() % 2 == 0):
-		person_name = _create_name(male_names)
+		person_name = _create_name(person_data_source.male_names)
 	else:
-		person_name = _create_name(female_names)
-	var last_name: String = "%s %s" % [Utils.rand_item(last_names), Utils.rand_item(last_names)]
+		person_name = _create_name(person_data_source.female_names)
+	var last_name: String = "%s %s" % [
+		Utils.rand_item(person_data_source.last_names),
+		Utils.rand_item(person_data_source.last_names),
+	]
 	return " ".join([person_name, last_name])

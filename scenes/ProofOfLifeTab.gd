@@ -1,14 +1,14 @@
 extends VBoxContainer
 
-@onready var debug_text := $DebugText as Label
+@onready var person_image := $Video/PersonImage as PersonImage
 
 
-var person_descriptor: PersonDescriptor:
-	get:
-		return person_descriptor
-	set(value):
-		person_descriptor = value
-		if person_descriptor == null:
-			debug_text.text = ""
-		else:
-			debug_text.text = str(person_descriptor)
+func populate(person_data: PersonDataSource, person_descriptor: PersonDescriptor) -> void:
+	if person_descriptor == null or person_data == null:
+		person_image.clear()
+	else:
+		person_image.generate(person_data, person_descriptor)
+
+
+func clear() -> void:
+	populate(null, null)

@@ -20,14 +20,14 @@ var request_challenge: RequestChallenge:
 	set(value):
 		request_challenge = value
 		if value == null:
-			curp_query_tab.person_descriptor = null
-			user_data_tab.person_descriptor = null
-			proof_of_life_tab.person_descriptor = null
+			curp_query_tab.clear()
+			user_data_tab.clear()
+			proof_of_life_tab.clear()
 			debug.text = "No challenge hass been set"
 		else:
-			curp_query_tab.person_descriptor = value.curp_query_person
-			user_data_tab.person_descriptor = value.original_person
-			proof_of_life_tab.person_descriptor = value.proof_of_life_person
+			curp_query_tab.populate(value.person_data_source, value.curp_query_person)
+			user_data_tab.populate(value.person_data_source, value.original_person)
+			proof_of_life_tab.populate(value.person_data_source, value.proof_of_life_person)
 			debug.text = "\n".join([str(value.original_person), "accept?: %s" % str(value.should_be_accepted())])
 
 

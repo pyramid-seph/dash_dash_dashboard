@@ -49,6 +49,7 @@ func _process(_delta) -> void:
 func _create_request_challenge() -> RequestChallenge:
 	var person: PersonDescriptor = person_randomizer.create_random_person()
 	var challenge: RequestChallenge = RequestChallenge.new()
+	challenge.person_data_source = person_randomizer.person_data_source
 	challenge.original_person = person
 	if randi() % 2 == 0:
 		challenge.curp_query_person = person
