@@ -9,10 +9,13 @@ signal on_request_rejected
 @onready var proof_of_life_tab = %ProofOfLifeTab
 @onready var debug := $DebugPanel/Debug as Label
 @onready var pause_panel = $PausePanel as PanelContainer
-@onready var game_over_panel = $GameOverPanel as PanelContainer
+@onready var game_over_results = $GameOverResults as PanelContainer
 @onready var cheems := %StaminaTimer as Label
 @onready var request_combo_counter := %RequestComboCounter as Label
 @onready var score := %Score as Label
+@onready var max_combo_label := $PanelContainer/VBoxContainer/HUD/MaxCombo as Label
+@onready var max_mult_label := $PanelContainer/VBoxContainer/HUD/MaxMultiplier as Label
+@onready var correct_guesses_label := $PanelContainer/VBoxContainer/HUD/Correct as Label
 
 
 var request_challenge: RequestChallenge:
@@ -36,8 +39,20 @@ func update_score(points: int) -> void:
 	score.text = "Score: %s" % points
 
 
-func update_request_combo_counter(time_left: float, multiplier: float) -> void:
-	request_combo_counter.text = "Combo: %s (%s)" % [time_left, multiplier]
+func update_max_combo(value: int) -> void:
+	max_combo_label.text = "MAX C: %s" % value
+
+
+func update_max_multiplier(value: float) -> void:
+	max_mult_label.text = "MAX M: %s" % value
+
+
+func update_correct_guessess(value: int) -> void:
+	correct_guesses_label.text = "CG: %s" % value
+
+
+func update_request_combo_counter(time_left: float, multiplier: float, combo: int) -> void:
+	request_combo_counter.text = "Combo: %s (M - %s) (C - %s)" % [time_left, multiplier, combo]
 
 
 func show_request_combo_counter(should_show: bool) -> void:
@@ -48,8 +63,12 @@ func show_pause_panel(paused: bool) -> void:
 	pause_panel.visible = paused
 
 
-func show_game_over_panel(should_show: bool) -> void:
-	game_over_panel.visible = should_show
+func show_results(max_combo: int, max_multiplier: float, bonus_points: int, total_score: int) -> void:
+	game_over_results.show_results(max_combo, max_multiplier, bonus_points, total_score)
+
+
+func hide_results() -> void:
+	game_over_results.hide_results()
 
 
 func update_stamina_meter(stamina: float) -> void:

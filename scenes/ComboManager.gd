@@ -7,7 +7,8 @@ signal combo_extended(multiplier, consecutive_extensions)
 signal combo_broken
 
 
-const MULTIPLIER_MIN: float = 1.0
+const MIN_MULTIPLIER: float = 1.0
+const MIN_CONSECUTIVE_EXT: int = 1
 
 @export var duration_sec: float = 1.0
 @export var max_multiplier: float = 1.0
@@ -47,8 +48,8 @@ func extend_combo_time() -> void:
 		combo_extended.emit(_multiplier, _consecutive_extensions)
 	else:
 		_is_active = true
-		_multiplier = MULTIPLIER_MIN
-		_consecutive_extensions = 0
+		_multiplier = MIN_MULTIPLIER
+		_consecutive_extensions = MIN_CONSECUTIVE_EXT
 		timer.start(duration_sec)
 		combo_started.emit(_multiplier, _consecutive_extensions)
 

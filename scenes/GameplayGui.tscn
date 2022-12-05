@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cdd2qox50mycb"]
+[gd_scene load_steps=7 format=3 uid="uid://cdd2qox50mycb"]
 
 [ext_resource type="Script" path="res://scenes/GameplayGui.gd" id="1_6yfmw"]
 [ext_resource type="Script" path="res://scenes/CurpQueryTab.gd" id="2_kph81"]
 [ext_resource type="Script" path="res://scenes/UserDataTab.gd" id="3_g15n0"]
 [ext_resource type="PackedScene" uid="uid://bol70ddbnwtv6" path="res://scenes/PersonImage.tscn" id="3_vdsu5"]
 [ext_resource type="Script" path="res://scenes/ProofOfLifeTab.gd" id="4_1il7u"]
+[ext_resource type="Script" path="res://scenes/GameOverPanel.gd" id="6_cvt1o"]
 
 [node name="GUI" type="Control"]
 layout_mode = 3
@@ -16,7 +17,6 @@ grow_vertical = 2
 script = ExtResource("1_6yfmw")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -24,124 +24,162 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
-layout_mode = 2
+offset_right = 1024.0
+offset_bottom = 720.0
 
 [node name="HUD" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
-layout_mode = 2
+offset_right = 1024.0
+offset_bottom = 26.0
 size_flags_vertical = 0
 alignment = 1
 
 [node name="StaminaTimer" type="Label" parent="PanelContainer/VBoxContainer/HUD"]
 unique_name_in_owner = true
-layout_mode = 2
+offset_right = 201.0
+offset_bottom = 26.0
 size_flags_horizontal = 3
 text = "Cheems: 000"
 
 [node name="Score" type="Label" parent="PanelContainer/VBoxContainer/HUD"]
 unique_name_in_owner = true
-layout_mode = 2
+offset_left = 205.0
+offset_right = 407.0
+offset_bottom = 26.0
 size_flags_horizontal = 3
 text = "Score: 999999"
+horizontal_alignment = 1
+
+[node name="MaxCombo" type="Label" parent="PanelContainer/VBoxContainer/HUD"]
+offset_left = 411.0
+offset_right = 612.0
+offset_bottom = 26.0
+size_flags_horizontal = 3
+text = "0"
+horizontal_alignment = 1
+
+[node name="MaxMultiplier" type="Label" parent="PanelContainer/VBoxContainer/HUD"]
+offset_left = 616.0
+offset_right = 818.0
+offset_bottom = 26.0
+size_flags_horizontal = 3
+text = "0"
+horizontal_alignment = 1
+
+[node name="Correct" type="Label" parent="PanelContainer/VBoxContainer/HUD"]
+offset_left = 822.0
+offset_right = 1024.0
+offset_bottom = 26.0
+size_flags_horizontal = 3
+text = "0"
 horizontal_alignment = 1
 
 [node name="RequestComboCounter" type="Label" parent="PanelContainer/VBoxContainer/HUD"]
 unique_name_in_owner = true
 visible = false
-layout_mode = 2
+offset_right = 160.0
+offset_bottom = 26.0
 size_flags_horizontal = 3
 text = "Combo 3 (x1.2) - 999 "
 horizontal_alignment = 2
 
 [node name="GridContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
-layout_mode = 2
+offset_top = 30.0
+offset_right = 1024.0
+offset_bottom = 720.0
 size_flags_vertical = 3
 
 [node name="ChallengeButtons" type="VBoxContainer" parent="PanelContainer/VBoxContainer/GridContainer"]
 visible = false
-layout_mode = 2
 
 [node name="ChallengesLabel" type="Label" parent="PanelContainer/VBoxContainer/GridContainer/ChallengeButtons"]
-layout_mode = 2
 text = "Challenges"
 
 [node name="ChallengeOneButton" type="Button" parent="PanelContainer/VBoxContainer/GridContainer/ChallengeButtons"]
-layout_mode = 2
 text = "ONE"
 
 [node name="ChallengeTwoButton" type="Button" parent="PanelContainer/VBoxContainer/GridContainer/ChallengeButtons"]
-layout_mode = 2
 text = "TWO"
 
 [node name="ChallengeThreeButton" type="Button" parent="PanelContainer/VBoxContainer/GridContainer/ChallengeButtons"]
-layout_mode = 2
 text = "THREE"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/GridContainer"]
-layout_mode = 2
+offset_right = 1024.0
+offset_bottom = 690.0
 size_flags_horizontal = 3
 
 [node name="ChallengeTabs" type="TabContainer" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer"]
-layout_mode = 2
+offset_right = 1024.0
+offset_bottom = 655.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="UserDataTab" type="HBoxContainer" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs"]
 unique_name_in_owner = true
-layout_mode = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 31.0
 script = ExtResource("3_g15n0")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/UserDataTab"]
-layout_mode = 2
+offset_right = 234.0
+offset_bottom = 624.0
 
 [node name="FullName" type="Label" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/UserDataTab/VBoxContainer"]
-layout_mode = 2
+offset_top = 63.0
+offset_right = 234.0
+offset_bottom = 89.0
 size_flags_vertical = 6
 text = "Name: My othercool full name"
 
 [node name="Age" type="Label" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/UserDataTab/VBoxContainer"]
-layout_mode = 2
+offset_top = 220.0
+offset_right = 234.0
+offset_bottom = 246.0
 size_flags_vertical = 6
 text = "Age: My Cool Age"
 
 [node name="Address" type="Label" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/UserDataTab/VBoxContainer"]
-layout_mode = 2
+offset_top = 377.0
+offset_right = 234.0
+offset_bottom = 403.0
 size_flags_vertical = 6
 text = "Address My Cool Address"
 
 [node name="Curp" type="Label" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/UserDataTab/VBoxContainer"]
-layout_mode = 2
+offset_top = 534.0
+offset_right = 234.0
+offset_bottom = 560.0
 size_flags_vertical = 6
 text = "Address My Cool Address"
 
 [node name="Reviewed" type="CheckBox" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/UserDataTab/VBoxContainer"]
 visible = false
-layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 text = "Revisado"
 
 [node name="PersonImage" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/UserDataTab" instance=ExtResource("3_vdsu5")]
-layout_mode = 2
+offset_left = 238.0
+offset_right = 1024.0
+offset_bottom = 624.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
 
 [node name="ProofOfLifeTab" type="VBoxContainer" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs"]
 unique_name_in_owner = true
 visible = false
-layout_mode = 2
 script = ExtResource("4_1il7u")
 
 [node name="Video" type="CenterContainer" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/ProofOfLifeTab"]
-layout_mode = 2
 size_flags_vertical = 3
 use_top_left = true
 
 [node name="PersonImage" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/ProofOfLifeTab/Video" instance=ExtResource("3_vdsu5")]
-layout_mode = 2
 
 [node name="Reviewed" type="CheckBox" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/ProofOfLifeTab"]
 visible = false
-layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 text = "Revisado"
@@ -149,49 +187,47 @@ text = "Revisado"
 [node name="CurpQueryTab" type="HBoxContainer" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs"]
 unique_name_in_owner = true
 visible = false
-layout_mode = 2
 script = ExtResource("2_kph81")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/CurpQueryTab"]
-layout_mode = 2
 
 [node name="FullName" type="Label" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/CurpQueryTab/VBoxContainer"]
-layout_mode = 2
 size_flags_vertical = 6
 text = "Name: My othercool full name"
 
 [node name="Age" type="Label" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/CurpQueryTab/VBoxContainer"]
-layout_mode = 2
 size_flags_vertical = 6
 text = "Age: My Cool Age"
 
 [node name="Address" type="Label" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/CurpQueryTab/VBoxContainer"]
-layout_mode = 2
 size_flags_vertical = 6
 text = "Address My Cool Address"
 
 [node name="Curp" type="Label" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/CurpQueryTab/VBoxContainer"]
-layout_mode = 2
 size_flags_vertical = 6
 text = "Address My Cool Address"
 
 [node name="Reviewed" type="CheckBox" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/CurpQueryTab/VBoxContainer"]
 visible = false
-layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 text = "Revisado"
 
 [node name="CommitmentButtons" type="HBoxContainer" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer"]
-layout_mode = 2
+offset_top = 659.0
+offset_right = 1024.0
+offset_bottom = 690.0
 
 [node name="RejectButton" type="Button" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/CommitmentButtons"]
-layout_mode = 2
+offset_right = 510.0
+offset_bottom = 31.0
 size_flags_horizontal = 3
 text = "Rechazar"
 
 [node name="AcceptButton" type="Button" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/CommitmentButtons"]
-layout_mode = 2
+offset_left = 514.0
+offset_right = 1024.0
+offset_bottom = 31.0
 size_flags_horizontal = 3
 text = "Aceptar
 "
@@ -199,7 +235,6 @@ text = "Aceptar
 [node name="DebugPanel" type="PanelContainer" parent="."]
 visible = false
 custom_minimum_size = Vector2(512, 0)
-layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -212,7 +247,6 @@ grow_horizontal = 0
 grow_vertical = 2
 
 [node name="Debug" type="Label" parent="DebugPanel"]
-layout_mode = 2
 size_flags_vertical = 1
 text = "DEBUG TEXT"
 autowrap_mode = 3
@@ -220,7 +254,6 @@ autowrap_mode = 3
 [node name="PausePanel" type="PanelContainer" parent="."]
 process_mode = 3
 visible = false
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -228,26 +261,58 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Pause" type="Label" parent="PausePanel"]
-layout_mode = 2
 text = "PAUSA"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GameOverPanel" type="PanelContainer" parent="."]
+[node name="GameOverResults" type="PanelContainer" parent="."]
 process_mode = 3
 visible = false
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("6_cvt1o")
 
-[node name="GameOver" type="Label" parent="GameOverPanel"]
-layout_mode = 2
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOverResults"]
+offset_right = 1024.0
+offset_bottom = 720.0
+
+[node name="GameOver" type="Label" parent="GameOverResults/VBoxContainer"]
+offset_right = 1024.0
+offset_bottom = 26.0
 text = "GAME OVER!"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="MaxCombo" type="Label" parent="GameOverResults/VBoxContainer"]
+unique_name_in_owner = true
+offset_top = 30.0
+offset_right = 1024.0
+offset_bottom = 56.0
+text = "100"
+
+[node name="MaxMultiplier" type="Label" parent="GameOverResults/VBoxContainer"]
+unique_name_in_owner = true
+offset_top = 60.0
+offset_right = 1024.0
+offset_bottom = 86.0
+text = "1.50"
+
+[node name="BonusPoints" type="Label" parent="GameOverResults/VBoxContainer"]
+unique_name_in_owner = true
+offset_top = 90.0
+offset_right = 1024.0
+offset_bottom = 116.0
+text = "Bonus! 999"
+
+[node name="TotalScore" type="Label" parent="GameOverResults/VBoxContainer"]
+unique_name_in_owner = true
+offset_top = 120.0
+offset_right = 1024.0
+offset_bottom = 146.0
+text = "99999"
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/CommitmentButtons/RejectButton" to="." method="_on_reject_button_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/CommitmentButtons/AcceptButton" to="." method="_on_accept_button_pressed"]
