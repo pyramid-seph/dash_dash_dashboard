@@ -12,10 +12,7 @@ signal on_request_rejected
 @onready var game_over_results = $GameOverResults as PanelContainer
 @onready var stamina_bar := %StaminaTimer as StaminaBar
 @onready var request_combo_counter := %RequestComboCounter as ComboBar
-@onready var score := %Score as Label
-@onready var max_combo_label := $PanelContainer/VBoxContainer/HUD/MaxCombo as Label
-@onready var max_mult_label := $PanelContainer/VBoxContainer/HUD/MaxMultiplier as Label
-@onready var correct_guesses_label := $PanelContainer/VBoxContainer/HUD/Correct as Label
+@onready var score_panel := %ScorePanel as ScorePanel
 
 
 var request_challenge: RequestChallenge:
@@ -35,20 +32,20 @@ var request_challenge: RequestChallenge:
 			debug.text = "\n".join([str(value.original_person), "accept?: %s" % str(value.should_be_accepted())])
 
 
-func update_score(points: int) -> void:
-	score.text = "Score: %s" % points
+func update_score(value: int) -> void:
+	score_panel.score = value
 
 
 func update_max_combo(value: int) -> void:
-	max_combo_label.text = "MAX C: %s" % value
+	score_panel.max_combo = value
 
 
 func update_max_multiplier(value: float) -> void:
-	max_mult_label.text = "MAX M: %s" % value
+	score_panel.max_multiplier = value
 
 
 func update_correct_guessess(value: int) -> void:
-	correct_guesses_label.text = "CG: %s" % value
+	score_panel.correct_guesses = value
 
 
 func show_pause_panel(paused: bool) -> void:

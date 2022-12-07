@@ -11,7 +11,6 @@ var multiplier: float:
 		multiplier = new_value
 		_change_multiplier_label()
 
-
 var combo: int:
 	set(new_value):
 		combo = new_value
