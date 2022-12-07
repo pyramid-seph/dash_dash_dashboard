@@ -53,7 +53,7 @@ func _unhandled_input(event) -> void:
 
 
 func _process(_delta) -> void:
-	gameplay_gui.update_stamina_meter(stamina_timer.time_left)
+	gameplay_gui.update_stamina_meter(stamina_timer.max_wait_time, stamina_timer.time_left)
 	gameplay_gui.update_request_combo_counter(request_combo_mngr.time_left,\
 		request_combo_mngr.multiplier, request_combo_mngr.consecutive_extensions)
 

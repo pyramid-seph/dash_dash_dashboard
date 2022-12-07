@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://xux6yu5r6j2h"]
+
+[ext_resource type="Script" path="res://scenes/StaminaBar.gd" id="1_rdhtp"]
+[ext_resource type="Texture2D" uid="uid://1yc6pjqt5yb" path="res://assets/ui_bar_foreground.png" id="2_pnaeh"]
+
+[node name="StaminaBar" type="VBoxContainer"]
+size_flags_vertical = 4
+script = ExtResource("1_rdhtp")
+
+[node name="Name" type="Label" parent="."]
+layout_mode = 2
+text = "Stamina"
+
+[node name="ProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+step = 0.0
+value = 100.0
+nine_patch_stretch = true
+stretch_margin_left = 1
+stretch_margin_top = 1
+stretch_margin_right = 1
+stretch_margin_bottom = 1
+texture_under = ExtResource("2_pnaeh")
+texture_progress = ExtResource("2_pnaeh")
+tint_under = Color(1, 0, 0, 1)
+tint_progress = Color(0, 0, 1, 1)

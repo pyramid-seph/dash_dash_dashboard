@@ -48,6 +48,11 @@ _global_script_classes=[{
 "class": &"RequestChallenge",
 "language": &"GDScript",
 "path": "res://scenes/RequestChallenge.gd"
+}, {
+"base": "VBoxContainer",
+"class": &"StaminaBar",
+"language": &"GDScript",
+"path": "res://scenes/StaminaBar.gd"
 }]
 _global_script_class_icons={
 "ClampedTime": "",
@@ -57,7 +62,8 @@ _global_script_class_icons={
 "PersonDescriptor": "",
 "PersonImage": "",
 "PersonRandomizer": "",
-"RequestChallenge": ""
+"RequestChallenge": "",
+"StaminaBar": ""
 }
 
 [application]

@@ -10,7 +10,7 @@ signal on_request_rejected
 @onready var debug := $DebugPanel/Debug as Label
 @onready var pause_panel = $PausePanel as PanelContainer
 @onready var game_over_results = $GameOverResults as PanelContainer
-@onready var cheems := %StaminaTimer as Label
+@onready var stamina_bar := %StaminaTimer as StaminaBar
 @onready var request_combo_counter := %RequestComboCounter as Label
 @onready var score := %Score as Label
 @onready var max_combo_label := $PanelContainer/VBoxContainer/HUD/MaxCombo as Label
@@ -71,8 +71,8 @@ func hide_results() -> void:
 	game_over_results.hide_results()
 
 
-func update_stamina_meter(stamina: float) -> void:
-	cheems.text = str(int(stamina * 100.0))
+func update_stamina_meter(max_stamina: float, curr_stamina: float) -> void:
+	stamina_bar.update(max_stamina, curr_stamina)
 
 
 func _on_accept_button_pressed() -> void:
