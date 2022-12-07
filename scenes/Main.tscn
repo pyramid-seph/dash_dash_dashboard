@@ -26,7 +26,5 @@ multiplier_delta = 0.1
 process_mode = 1
 
 [connection signal="timeout" from="StaminaTimer" to="." method="_on_stamina_timer_timeout"]
-[connection signal="combo_broken" from="RequestComboManager" to="." method="_on_request_combo_manager_combo_broken"]
-[connection signal="combo_started" from="RequestComboManager" to="." method="_on_request_combo_manager_combo_started"]
 [connection signal="on_request_accepted" from="GameplayGui" to="." method="_on_gameplay_gui_on_request_accepted"]
 [connection signal="on_request_rejected" from="GameplayGui" to="." method="_on_gameplay_gui_on_request_rejected"]

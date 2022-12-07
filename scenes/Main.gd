@@ -42,8 +42,18 @@ func _ready() -> void:
 	gameplay_gui.update_max_multiplier(_max_combo_multiplier)
 	gameplay_gui.update_max_combo(_max_combo)
 	gameplay_gui.update_correct_guessess(_correct_guesses)
-	request_combo_mngr.combo_started.connect(func(_a, b): print("Consecutive: %s" % b))
-	request_combo_mngr.combo_extended.connect(func(_a, b): print("Consecutive: %s" % b))
+	request_combo_mngr.combo_started.connect(func(multiplier, combo):
+		gameplay_gui.request_combo_counter.visible = true
+		gameplay_gui.request_combo_counter.combo = combo
+		gameplay_gui.request_combo_counter.multiplier = multiplier
+	)
+	request_combo_mngr.combo_extended.connect(func(multiplier, combo):
+		gameplay_gui.request_combo_counter.combo = combo
+		gameplay_gui.request_combo_counter.multiplier = multiplier
+	)
+	request_combo_mngr.combo_broken.connect(func():
+		gameplay_gui.request_combo_counter.visible = false
+	)
 
 
 func _unhandled_input(event) -> void:
@@ -54,8 +64,8 @@ func _unhandled_input(event) -> void:
 
 func _process(_delta) -> void:
 	gameplay_gui.update_stamina_meter(stamina_timer.max_wait_time, stamina_timer.time_left)
-	gameplay_gui.update_request_combo_counter(request_combo_mngr.time_left,\
-		request_combo_mngr.multiplier, request_combo_mngr.consecutive_extensions)
+	gameplay_gui.request_combo_counter.update(request_combo_mngr.duration_sec, \
+		request_combo_mngr.time_left)
 
 
 func _create_request_challenge() -> RequestChallenge:
@@ -146,11 +156,3 @@ func _on_stamina_timer_timeout() -> void:
 	var bonus_points: int = int(_max_combo * _max_combo_multiplier * base_points_successful_request)
 	_score += bonus_points
 	gameplay_gui.show_results(_max_combo, _max_combo_multiplier, bonus_points, _score)
-
-
-func _on_request_combo_manager_combo_started(_multiplier, _consecutive_extensions) -> void:
-	gameplay_gui.show_request_combo_counter(true)
-
-
-func _on_request_combo_manager_combo_broken():
-	gameplay_gui.show_request_combo_counter(false)

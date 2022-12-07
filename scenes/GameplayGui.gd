@@ -11,7 +11,7 @@ signal on_request_rejected
 @onready var pause_panel = $PausePanel as PanelContainer
 @onready var game_over_results = $GameOverResults as PanelContainer
 @onready var stamina_bar := %StaminaTimer as StaminaBar
-@onready var request_combo_counter := %RequestComboCounter as Label
+@onready var request_combo_counter := %RequestComboCounter as ComboBar
 @onready var score := %Score as Label
 @onready var max_combo_label := $PanelContainer/VBoxContainer/HUD/MaxCombo as Label
 @onready var max_mult_label := $PanelContainer/VBoxContainer/HUD/MaxMultiplier as Label
@@ -49,14 +49,6 @@ func update_max_multiplier(value: float) -> void:
 
 func update_correct_guessess(value: int) -> void:
 	correct_guesses_label.text = "CG: %s" % value
-
-
-func update_request_combo_counter(time_left: float, multiplier: float, combo: int) -> void:
-	request_combo_counter.text = "Combo: %s (M - %s) (C - %s)" % [time_left, multiplier, combo]
-
-
-func show_request_combo_counter(should_show: bool) -> void:
-	request_combo_counter.visible = should_show
 
 
 func show_pause_panel(paused: bool) -> void:
