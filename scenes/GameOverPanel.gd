@@ -8,9 +8,9 @@ extends PanelContainer
 
 
 func show_results(max_combo: int, max_multiplier: float, bonus_points: int, total_score: int) -> void:
-	max_combo_label.text = "MAX Combo: %s" % max_combo
-	max_multiplier_label.text = "MAX Multiplier: %s" % max_multiplier
-	bonus_points_label.text = "Bonus! (MAX Combo x MAX Multiplier x 100): %s" % bonus_points
+	max_combo_label.text = "MAX COMBO: %s" % max_combo
+	max_multiplier_label.text = "MAX MULT: %s" % max_multiplier
+	bonus_points_label.text = "Bonus! (MAX COMBO x MAX MULT x 100): %s" % bonus_points
 	total_score_label.text = "Total Score: %s" % total_score
 	visible = true
 

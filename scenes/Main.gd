@@ -43,7 +43,7 @@ func _ready() -> void:
 	gameplay_gui.update_max_combo(_max_combo)
 	gameplay_gui.update_correct_guessess(_correct_guesses)
 	request_combo_mngr.combo_started.connect(func(multiplier, combo):
-		gameplay_gui.request_combo_counter.visible = true
+		gameplay_gui.request_combo_counter.show_combo_bar(true)
 		gameplay_gui.request_combo_counter.combo = combo
 		gameplay_gui.request_combo_counter.multiplier = multiplier
 	)
@@ -52,7 +52,7 @@ func _ready() -> void:
 		gameplay_gui.request_combo_counter.multiplier = multiplier
 	)
 	request_combo_mngr.combo_broken.connect(func():
-		gameplay_gui.request_combo_counter.visible = false
+		gameplay_gui.request_combo_counter.show_combo_bar(false)
 	)
 
 
