@@ -13,6 +13,11 @@ signal on_request_rejected
 @onready var stamina_bar := %StaminaTimer as StaminaBar
 @onready var request_combo_counter := %RequestComboCounter as ComboBar
 @onready var score_panel := %ScorePanel as ScorePanel
+@onready var title_screen := $TitleScreen
+@onready var quote_panel := $QuotePanel
+@onready var instructions_panel := $IntructionsPanel
+@onready var error_explanation_panel := $ErrorExplanationPanel
+@onready var correct_panel := $CorrectPanel
 
 
 var request_challenge: RequestChallenge:
@@ -30,6 +35,22 @@ var request_challenge: RequestChallenge:
 			user_data_tab.populate(value.person_data_source, value.original_person)
 			proof_of_life_tab.populate(value.person_data_source, value.proof_of_life_person)
 			debug.text = "\n".join([str(value.original_person), "accept?: %s" % str(value.should_be_accepted())])
+
+
+func change_title_screen_visibility(value: bool) -> void:
+	title_screen.visible = value
+
+
+func change_quote_visibility(value: bool) -> void:
+	quote_panel.visible = value
+
+
+func change_instructions_visibility(value: bool) -> void:
+	instructions_panel.visible = value
+
+
+func change_correct_panel_visibility(value: bool) -> void:
+	correct_panel.visible = value
 
 
 func update_score(value: int) -> void:
