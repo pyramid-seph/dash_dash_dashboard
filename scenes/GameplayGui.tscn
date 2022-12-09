@@ -20,6 +20,7 @@ grow_vertical = 2
 script = ExtResource("1_6yfmw")
 
 [node name="TitleScreen" type="PanelContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -53,7 +54,6 @@ size_flags_vertical = 8
 text = "[ESC] Exit"
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

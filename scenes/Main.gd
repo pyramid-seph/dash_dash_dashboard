@@ -15,7 +15,14 @@ enum GameState {
 var _max_combo: int = 0
 var _max_combo_multiplier: float = 0
 var _correct_guesses: int = 0
-var _score: int = 0
+var _hi_score: int = 0:
+	set(new_value):
+		_hi_score = new_value
+		gameplay_gui.update_hi_score(_hi_score)
+var _score: int = 0:
+	set(new_value):
+		_score = new_value
+		_hi_score = maxi(_hi_score, _score)
 var _game_state: GameState = GameState.PLAYING
 var _current_request_challenge: RequestChallenge:
 	get:
@@ -38,10 +45,10 @@ func _ready() -> void:
 	_setup_next_request_challenge()
 	gameplay_gui.hide_results()
 	stamina_timer.start(stamina_sec)
-	gameplay_gui.update_score(_score)
 	gameplay_gui.update_max_multiplier(_max_combo_multiplier)
 	gameplay_gui.update_max_combo(_max_combo)
 	gameplay_gui.update_correct_guessess(_correct_guesses)
+	gameplay_gui.update_score(_score)
 	request_combo_mngr.combo_started.connect(func(multiplier, combo):
 		gameplay_gui.request_combo_counter.show_combo_bar(true)
 		gameplay_gui.request_combo_counter.combo = combo
@@ -111,7 +118,6 @@ func _on_correct_request_guess() -> void:
 	if _max_combo < request_combo_mngr.consecutive_extensions:
 		_max_combo = request_combo_mngr.consecutive_extensions
 		gameplay_gui.update_max_combo(_max_combo)
-		
 	gameplay_gui.update_score(_score)
 	gameplay_gui.update_correct_guessess(_correct_guesses)
 
@@ -154,5 +160,6 @@ func _on_gameplay_gui_on_request_accepted() -> void:
 func _on_stamina_timer_timeout() -> void:
 	_game_state = GameState.GAME_OVER
 	var bonus_points: int = int(_max_combo * _max_combo_multiplier * base_points_successful_request)
+	var old_score = _score
 	_score += bonus_points
-	gameplay_gui.show_results(_max_combo, _max_combo_multiplier, bonus_points, _score)
+	gameplay_gui.show_results(_max_combo, _max_combo_multiplier, bonus_points, _score, old_score)

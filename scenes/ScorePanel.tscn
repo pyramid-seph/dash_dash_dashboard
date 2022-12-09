@@ -6,54 +6,81 @@
 script = ExtResource("1_imqm5")
 
 [node name="Label" type="Label" parent="."]
-layout_mode = 2
+offset_right = 197.0
+offset_bottom = 26.0
 text = "SCORE"
 horizontal_alignment = 1
 
 [node name="ScoreLabel" type="Label" parent="."]
-layout_mode = 2
+offset_top = 30.0
+offset_right = 197.0
+offset_bottom = 56.0
 text = "1000"
 horizontal_alignment = 1
 
 [node name="CorrectGuessesLabel" type="Label" parent="."]
-layout_mode = 2
+offset_top = 60.0
+offset_right = 197.0
+offset_bottom = 86.0
 text = "99"
 horizontal_alignment = 1
 
+[node name="HiScoreLabel" type="Label" parent="."]
+offset_top = 90.0
+offset_right = 197.0
+offset_bottom = 116.0
+text = "HI - 1000"
+horizontal_alignment = 1
+
 [node name="HSeparator" type="HSeparator" parent="."]
-layout_mode = 2
+offset_top = 120.0
+offset_right = 197.0
+offset_bottom = 124.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 2
+offset_top = 128.0
+offset_right = 197.0
+offset_bottom = 184.0
 alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
-layout_mode = 2
+offset_right = 101.0
+offset_bottom = 56.0
 
 [node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
-layout_mode = 2
+offset_right = 101.0
+offset_bottom = 26.0
 text = "MAX COMBO"
 
 [node name="MaxComboLabel" type="Label" parent="HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
-layout_mode = 2
+offset_top = 30.0
+offset_right = 101.0
+offset_bottom = 56.0
 size_flags_horizontal = 3
 text = "9999"
 horizontal_alignment = 1
 
 [node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
-layout_mode = 2
+offset_left = 105.0
+offset_right = 109.0
+offset_bottom = 56.0
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
-layout_mode = 2
+offset_left = 113.0
+offset_right = 197.0
+offset_bottom = 56.0
 
 [node name="Label" type="Label" parent="HBoxContainer/VBoxContainer2"]
-layout_mode = 2
+offset_right = 84.0
+offset_bottom = 26.0
 text = "MAX MULT"
 
 [node name="MaxMultiplierLabel" type="Label" parent="HBoxContainer/VBoxContainer2"]
 unique_name_in_owner = true
-layout_mode = 2
+offset_top = 30.0
+offset_right = 84.0
+offset_bottom = 56.0
 size_flags_horizontal = 3
 text = "9999"
 horizontal_alignment = 1

@@ -57,6 +57,10 @@ func update_score(value: int) -> void:
 	score_panel.score = value
 
 
+func update_hi_score(value: int) -> void:
+	score_panel.hi_score = value
+
+
 func update_max_combo(value: int) -> void:
 	score_panel.max_combo = value
 
@@ -73,8 +77,8 @@ func show_pause_panel(paused: bool) -> void:
 	pause_panel.visible = paused
 
 
-func show_results(max_combo: int, max_multiplier: float, bonus_points: int, total_score: int) -> void:
-	game_over_results.show_results(max_combo, max_multiplier, bonus_points, total_score)
+func show_results(max_combo: int, max_multiplier: float, bonus_points: int, total_score: int, old_score: int) -> void:
+	game_over_results.show_results(max_combo, max_multiplier, bonus_points, total_score, old_score)
 
 
 func hide_results() -> void:

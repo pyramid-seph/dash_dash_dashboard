@@ -9,6 +9,10 @@
 [node name="Main" type="Node"]
 process_mode = 3
 script = ExtResource("1_j113n")
+stamina_sec = null
+stamina_gain_sec = null
+stamina_lose_sec = null
+base_points_successful_request = null
 
 [node name="PersonRandomizer" parent="." instance=ExtResource("2_iq7nc")]
 process_mode = 1
