@@ -7,10 +7,10 @@ extends PanelContainer
 @onready var total_score_label := %TotalScore as Label
 
 
-func show_results(max_combo: int, max_multiplier: float, bonus_points: int, total_score: int, old_score: int) -> void:
+func show_results(max_combo: int, max_multiplier: float, bonus_points: int, total_score: int, old_score: int, base_bonus_points: int) -> void:
 	max_combo_label.text = "MAX COMBO: %s" % max_combo
 	max_multiplier_label.text = "MAX MULT: %s" % max_multiplier
-	bonus_points_label.text = "Bonus! (MAX COMBO x MAX MULT x 100): %s" % bonus_points
+	bonus_points_label.text = "Bonus! (MAX COMBO x MAX MULT x %s): %s" % [base_bonus_points, bonus_points]
 	total_score_label.text = "Total Score: %s + %s = %s" % [old_score, bonus_points, total_score]
 	visible = true
 

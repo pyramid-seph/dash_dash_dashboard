@@ -1,8 +1,8 @@
 class_name GameplayGui
 extends Control
 
-signal on_request_accepted
-signal on_request_rejected
+signal request_accepted
+signal request_rejected
 
 @onready var curp_query_tab = %CurpQueryTab
 @onready var user_data_tab = %UserDataTab
@@ -18,6 +18,7 @@ signal on_request_rejected
 @onready var instructions_panel := $IntructionsPanel
 @onready var error_explanation_panel := $ErrorExplanationPanel
 @onready var correct_panel := $CorrectPanel
+@onready var game_panel := $GameContainer
 
 
 var request_challenge: RequestChallenge:
@@ -35,6 +36,10 @@ var request_challenge: RequestChallenge:
 			user_data_tab.populate(value.person_data_source, value.original_person)
 			proof_of_life_tab.populate(value.person_data_source, value.proof_of_life_person)
 			debug.text = "\n".join([str(value.original_person), "accept?: %s" % str(value.should_be_accepted())])
+
+
+func change_game_screen_visibility(value: bool) -> void:
+	game_panel.visible = value
 
 
 func change_title_screen_visibility(value: bool) -> void:
@@ -77,8 +82,8 @@ func show_pause_panel(paused: bool) -> void:
 	pause_panel.visible = paused
 
 
-func show_results(max_combo: int, max_multiplier: float, bonus_points: int, total_score: int, old_score: int) -> void:
-	game_over_results.show_results(max_combo, max_multiplier, bonus_points, total_score, old_score)
+func show_results(max_combo: int, max_multiplier: float, bonus_points: int, total_score: int, old_score: int, base_bonus_points: int) -> void:
+	game_over_results.show_results(max_combo, max_multiplier, bonus_points, total_score, old_score, base_bonus_points)
 
 
 func hide_results() -> void:
@@ -90,8 +95,8 @@ func update_stamina_meter(max_stamina: float, curr_stamina: float) -> void:
 
 
 func _on_accept_button_pressed() -> void:
-	on_request_accepted.emit()
+	request_accepted.emit()
 
 
 func _on_reject_button_pressed() -> void:
-	on_request_rejected.emit()
+	request_rejected.emit()

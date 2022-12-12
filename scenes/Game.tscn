@@ -1,0 +1,43 @@
+[gd_scene load_steps=11 format=3 uid="uid://blwio6a8h7kfl"]
+
+[ext_resource type="Script" path="res://scenes/Game.gd" id="1_7uuqv"]
+[ext_resource type="PackedScene" path="res://scenes/PersonRandomizer.tscn" id="2_11wco"]
+[ext_resource type="Script" path="res://scenes/GameStateMachine.gd" id="2_l1akh"]
+[ext_resource type="Script" path="res://scenes/TitleScreenState.gd" id="3_8lc77"]
+[ext_resource type="PackedScene" uid="uid://hq3mhsieof3k" path="res://scenes/ComboManager.tscn" id="3_ke5jt"]
+[ext_resource type="Script" path="res://scenes/PauseState.gd" id="4_bmc37"]
+[ext_resource type="PackedScene" uid="uid://bqjywyns0o5n8" path="res://scenes/ClampedTimer.tscn" id="4_ukup6"]
+[ext_resource type="Script" path="res://scenes/PlayingState.gd" id="5_n3sen"]
+[ext_resource type="PackedScene" uid="uid://cdd2qox50mycb" path="res://scenes/GameplayGui.tscn" id="5_pdk4a"]
+[ext_resource type="Script" path="res://scenes/GameOverState.gd" id="6_i1mgl"]
+
+[node name="Game" type="Node"]
+script = ExtResource("1_7uuqv")
+
+[node name="GameStateMachine" type="Node" parent="."]
+process_mode = 3
+script = ExtResource("2_l1akh")
+
+[node name="TitleScreenState" type="Node" parent="GameStateMachine"]
+script = ExtResource("3_8lc77")
+
+[node name="PauseState" type="Node" parent="GameStateMachine"]
+script = ExtResource("4_bmc37")
+
+[node name="PlayingState" type="Node" parent="GameStateMachine"]
+process_mode = 1
+script = ExtResource("5_n3sen")
+
+[node name="GameOverState" type="Node" parent="GameStateMachine"]
+script = ExtResource("6_i1mgl")
+
+[node name="PersonRandomizer" parent="." instance=ExtResource("2_11wco")]
+
+[node name="ComboManager" parent="." instance=ExtResource("3_ke5jt")]
+duration_sec = 5.0
+max_multiplier = 3.0
+multiplier_delta = 0.1
+
+[node name="StaminaTimer" parent="." instance=ExtResource("4_ukup6")]
+
+[node name="GameplayGui" parent="." instance=ExtResource("5_pdk4a")]

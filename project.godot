@@ -24,6 +24,21 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://scenes/ComboManager.gd"
 }, {
+"base": "Node",
+"class": &"Game",
+"language": &"GDScript",
+"path": "res://scenes/Game.gd"
+}, {
+"base": "Node",
+"class": &"GameState",
+"language": &"GDScript",
+"path": "res://scenes/GameState.gd"
+}, {
+"base": "Node",
+"class": &"GameStateMachine",
+"language": &"GDScript",
+"path": "res://scenes/GameStateMachine.gd"
+}, {
 "base": "Control",
 "class": &"GameplayGui",
 "language": &"GDScript",
@@ -68,6 +83,9 @@ _global_script_class_icons={
 "ClampedTime": "",
 "ComboBar": "",
 "ComboManager": "",
+"Game": "",
+"GameState": "",
+"GameStateMachine": "",
 "GameplayGui": "",
 "PersonDataSource": "",
 "PersonDescriptor": "",
@@ -81,7 +99,7 @@ _global_script_class_icons={
 [application]
 
 config/name="dash_dash_dashboard"
-run/main_scene="res://scenes/Main.tscn"
+run/main_scene="res://scenes/Game.tscn"
 config/features=PackedStringArray("4.0", "Mobile")
 config/icon="res://assets/icon.svg"
 

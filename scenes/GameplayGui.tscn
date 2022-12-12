@@ -53,7 +53,8 @@ size_flags_horizontal = 0
 size_flags_vertical = 8
 text = "[ESC] Exit"
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="GameContainer" type="PanelContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -61,168 +62,168 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="GameContainer"]
 layout_mode = 2
 
-[node name="HUD" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+[node name="HUD" type="HBoxContainer" parent="GameContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 0
 alignment = 1
 
-[node name="StaminaTimer" parent="PanelContainer/VBoxContainer/HUD" instance=ExtResource("2_0eg3r")]
+[node name="StaminaTimer" parent="GameContainer/VBoxContainer/HUD" instance=ExtResource("2_0eg3r")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ScorePanel" parent="PanelContainer/VBoxContainer/HUD" instance=ExtResource("3_6jtmv")]
+[node name="ScorePanel" parent="GameContainer/VBoxContainer/HUD" instance=ExtResource("3_6jtmv")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="RequestComboCounter" parent="PanelContainer/VBoxContainer/HUD" instance=ExtResource("3_fqvos")]
+[node name="RequestComboCounter" parent="GameContainer/VBoxContainer/HUD" instance=ExtResource("3_fqvos")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="GridContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+[node name="GridContainer" type="HBoxContainer" parent="GameContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="ChallengeButtons" type="VBoxContainer" parent="PanelContainer/VBoxContainer/GridContainer"]
+[node name="ChallengeButtons" type="VBoxContainer" parent="GameContainer/VBoxContainer/GridContainer"]
 visible = false
 layout_mode = 2
 
-[node name="ChallengesLabel" type="Label" parent="PanelContainer/VBoxContainer/GridContainer/ChallengeButtons"]
+[node name="ChallengesLabel" type="Label" parent="GameContainer/VBoxContainer/GridContainer/ChallengeButtons"]
 layout_mode = 2
 text = "Challenges"
 
-[node name="ChallengeOneButton" type="Button" parent="PanelContainer/VBoxContainer/GridContainer/ChallengeButtons"]
+[node name="ChallengeOneButton" type="Button" parent="GameContainer/VBoxContainer/GridContainer/ChallengeButtons"]
 layout_mode = 2
 text = "ONE"
 
-[node name="ChallengeTwoButton" type="Button" parent="PanelContainer/VBoxContainer/GridContainer/ChallengeButtons"]
+[node name="ChallengeTwoButton" type="Button" parent="GameContainer/VBoxContainer/GridContainer/ChallengeButtons"]
 layout_mode = 2
 text = "TWO"
 
-[node name="ChallengeThreeButton" type="Button" parent="PanelContainer/VBoxContainer/GridContainer/ChallengeButtons"]
+[node name="ChallengeThreeButton" type="Button" parent="GameContainer/VBoxContainer/GridContainer/ChallengeButtons"]
 layout_mode = 2
 text = "THREE"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/GridContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="GameContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ChallengeTabs" type="TabContainer" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer"]
+[node name="ChallengeTabs" type="TabContainer" parent="GameContainer/VBoxContainer/GridContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="UserDataTab" type="HBoxContainer" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs"]
+[node name="UserDataTab" type="HBoxContainer" parent="GameContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs"]
 unique_name_in_owner = true
 layout_mode = 2
 script = ExtResource("3_g15n0")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/UserDataTab"]
+[node name="VBoxContainer" type="VBoxContainer" parent="GameContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/UserDataTab"]
 layout_mode = 2
 
-[node name="FullName" type="Label" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/UserDataTab/VBoxContainer"]
+[node name="FullName" type="Label" parent="GameContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/UserDataTab/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
 text = "Name: My othercool full name"
 
-[node name="Age" type="Label" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/UserDataTab/VBoxContainer"]
+[node name="Age" type="Label" parent="GameContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/UserDataTab/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
 text = "Age: My Cool Age"
 
-[node name="Address" type="Label" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/UserDataTab/VBoxContainer"]
+[node name="Address" type="Label" parent="GameContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/UserDataTab/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
 text = "Address My Cool Address"
 
-[node name="Curp" type="Label" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/UserDataTab/VBoxContainer"]
+[node name="Curp" type="Label" parent="GameContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/UserDataTab/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
 text = "Address My Cool Address"
 
-[node name="Reviewed" type="CheckBox" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/UserDataTab/VBoxContainer"]
+[node name="Reviewed" type="CheckBox" parent="GameContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/UserDataTab/VBoxContainer"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 text = "Revisado"
 
-[node name="PersonImage" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/UserDataTab" instance=ExtResource("3_vdsu5")]
+[node name="PersonImage" parent="GameContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/UserDataTab" instance=ExtResource("3_vdsu5")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 
-[node name="ProofOfLifeTab" type="VBoxContainer" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs"]
+[node name="ProofOfLifeTab" type="VBoxContainer" parent="GameContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 script = ExtResource("4_1il7u")
 
-[node name="Video" type="CenterContainer" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/ProofOfLifeTab"]
+[node name="Video" type="CenterContainer" parent="GameContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/ProofOfLifeTab"]
 layout_mode = 2
 size_flags_vertical = 3
 use_top_left = true
 
-[node name="PersonImage" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/ProofOfLifeTab/Video" instance=ExtResource("3_vdsu5")]
+[node name="PersonImage" parent="GameContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/ProofOfLifeTab/Video" instance=ExtResource("3_vdsu5")]
 layout_mode = 2
 
-[node name="Reviewed" type="CheckBox" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/ProofOfLifeTab"]
+[node name="Reviewed" type="CheckBox" parent="GameContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/ProofOfLifeTab"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 text = "Revisado"
 
-[node name="CurpQueryTab" type="HBoxContainer" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs"]
+[node name="CurpQueryTab" type="HBoxContainer" parent="GameContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 script = ExtResource("2_kph81")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/CurpQueryTab"]
+[node name="VBoxContainer" type="VBoxContainer" parent="GameContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/CurpQueryTab"]
 layout_mode = 2
 
-[node name="FullName" type="Label" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/CurpQueryTab/VBoxContainer"]
+[node name="FullName" type="Label" parent="GameContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/CurpQueryTab/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
 text = "Name: My othercool full name"
 
-[node name="Age" type="Label" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/CurpQueryTab/VBoxContainer"]
+[node name="Age" type="Label" parent="GameContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/CurpQueryTab/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
 text = "Age: My Cool Age"
 
-[node name="Address" type="Label" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/CurpQueryTab/VBoxContainer"]
+[node name="Address" type="Label" parent="GameContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/CurpQueryTab/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
 text = "Address My Cool Address"
 
-[node name="Curp" type="Label" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/CurpQueryTab/VBoxContainer"]
+[node name="Curp" type="Label" parent="GameContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/CurpQueryTab/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
 text = "Address My Cool Address"
 
-[node name="Reviewed" type="CheckBox" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/CurpQueryTab/VBoxContainer"]
+[node name="Reviewed" type="CheckBox" parent="GameContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/CurpQueryTab/VBoxContainer"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 text = "Revisado"
 
-[node name="CommitmentButtons" type="HBoxContainer" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer"]
+[node name="CommitmentButtons" type="HBoxContainer" parent="GameContainer/VBoxContainer/GridContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="RejectButton" type="Button" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/CommitmentButtons"]
+[node name="RejectButton" type="Button" parent="GameContainer/VBoxContainer/GridContainer/VBoxContainer/CommitmentButtons"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Rechazar"
 
-[node name="AcceptButton" type="Button" parent="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/CommitmentButtons"]
+[node name="AcceptButton" type="Button" parent="GameContainer/VBoxContainer/GridContainer/VBoxContainer/CommitmentButtons"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Aceptar
@@ -395,5 +396,5 @@ offset_bottom = 40.0
 layout_mode = 2
 text = "CORRECT!!!"
 
-[connection signal="pressed" from="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/CommitmentButtons/RejectButton" to="." method="_on_reject_button_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/GridContainer/VBoxContainer/CommitmentButtons/AcceptButton" to="." method="_on_accept_button_pressed"]
+[connection signal="pressed" from="GameContainer/VBoxContainer/GridContainer/VBoxContainer/CommitmentButtons/RejectButton" to="." method="_on_reject_button_pressed"]
+[connection signal="pressed" from="GameContainer/VBoxContainer/GridContainer/VBoxContainer/CommitmentButtons/AcceptButton" to="." method="_on_accept_button_pressed"]
