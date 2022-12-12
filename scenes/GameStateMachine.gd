@@ -7,6 +7,8 @@ var _curr_state: GameState
 
 
 @onready var title_screen_state: GameState = $TitleScreenState
+@onready var instructions_state: GameState = $InstructionsState
+@onready var quote_state: GameState = $QuoteState
 @onready var pause_state: GameState = $PauseState
 @onready var playing_state: GameState = $PlayingState
 @onready var game_over_state: GameState = $GameOverState

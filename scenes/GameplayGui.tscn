@@ -350,6 +350,12 @@ layout_mode = 2
 text = "- Bernard Suits"
 horizontal_alignment = 2
 
+[node name="StartGameLabel" type="Label" parent="QuotePanel"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "[SPACEBAR] Start game"
+
 [node name="IntructionsPanel" type="PanelContainer" parent="."]
 visible = false
 layout_mode = 1

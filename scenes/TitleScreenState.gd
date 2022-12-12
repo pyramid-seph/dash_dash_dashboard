@@ -9,7 +9,7 @@ func _handle_input(event: InputEvent) -> void:
 	if event.is_action_pressed("exit"):
 		get_tree().quit()
 	elif event.is_action_pressed("accept"):
-		state_machine.change_state(state_machine.playing_state)
+		state_machine.change_state(state_machine.instructions_state)
 
 
 func _on_exit() -> void:

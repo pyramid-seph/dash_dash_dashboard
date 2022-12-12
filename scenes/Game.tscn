@@ -1,14 +1,16 @@
-[gd_scene load_steps=11 format=3 uid="uid://blwio6a8h7kfl"]
+[gd_scene load_steps=13 format=3 uid="uid://blwio6a8h7kfl"]
 
 [ext_resource type="Script" path="res://scenes/Game.gd" id="1_7uuqv"]
 [ext_resource type="PackedScene" path="res://scenes/PersonRandomizer.tscn" id="2_11wco"]
 [ext_resource type="Script" path="res://scenes/GameStateMachine.gd" id="2_l1akh"]
 [ext_resource type="Script" path="res://scenes/TitleScreenState.gd" id="3_8lc77"]
 [ext_resource type="PackedScene" uid="uid://hq3mhsieof3k" path="res://scenes/ComboManager.tscn" id="3_ke5jt"]
+[ext_resource type="Script" path="res://scenes/InstructionsState.gd" id="4_am7d0"]
 [ext_resource type="Script" path="res://scenes/PauseState.gd" id="4_bmc37"]
 [ext_resource type="PackedScene" uid="uid://bqjywyns0o5n8" path="res://scenes/ClampedTimer.tscn" id="4_ukup6"]
 [ext_resource type="Script" path="res://scenes/PlayingState.gd" id="5_n3sen"]
 [ext_resource type="PackedScene" uid="uid://cdd2qox50mycb" path="res://scenes/GameplayGui.tscn" id="5_pdk4a"]
+[ext_resource type="Script" path="res://scenes/QuoteState.gd" id="5_xam4v"]
 [ext_resource type="Script" path="res://scenes/GameOverState.gd" id="6_i1mgl"]
 
 [node name="Game" type="Node"]
@@ -20,6 +22,12 @@ script = ExtResource("2_l1akh")
 
 [node name="TitleScreenState" type="Node" parent="GameStateMachine"]
 script = ExtResource("3_8lc77")
+
+[node name="InstructionsState" type="Node" parent="GameStateMachine"]
+script = ExtResource("4_am7d0")
+
+[node name="QuoteState" type="Node" parent="GameStateMachine"]
+script = ExtResource("5_xam4v")
 
 [node name="PauseState" type="Node" parent="GameStateMachine"]
 script = ExtResource("4_bmc37")
