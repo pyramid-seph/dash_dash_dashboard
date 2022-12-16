@@ -46,11 +46,13 @@ alignment = 1
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
 offset_right = 101.0
 offset_bottom = 56.0
+size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
 offset_right = 101.0
 offset_bottom = 26.0
 text = "MAX COMBO"
+horizontal_alignment = 1
 
 [node name="MaxComboLabel" type="Label" parent="HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
@@ -70,11 +72,13 @@ offset_bottom = 56.0
 offset_left = 113.0
 offset_right = 197.0
 offset_bottom = 56.0
+size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="HBoxContainer/VBoxContainer2"]
 offset_right = 84.0
 offset_bottom = 26.0
 text = "MAX MULT"
+horizontal_alignment = 1
 
 [node name="MaxMultiplierLabel" type="Label" parent="HBoxContainer/VBoxContainer2"]
 unique_name_in_owner = true

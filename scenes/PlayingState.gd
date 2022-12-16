@@ -29,13 +29,14 @@ func _on_exit() -> void:
 	game.combo_mngr.break_combo()
 	_destroy_connections()
 	game.gameplay_gui.change_game_screen_visibility(false)
+	game.gameplay_gui.stop_next_challenge()
 
 
 func _reset_game_state() -> void:
 	game.score = 0
 	game.correct_guesses = 0
 	game.max_combo_multiplier = game.combo_mngr.MIN_MULTIPLIER
-	game.max_combo = 0	
+	game.max_combo = 0
 	# Hi score will not be reset
 
 
@@ -55,6 +56,7 @@ func _setup_connections() -> void:
 	game.combo_mngr.combo_broken.connect(_on_combo_broken)
 	game.gameplay_gui.request_accepted.connect(_on_request_accepted)
 	game.gameplay_gui.request_rejected.connect(_on_request_rejected)
+	game.gameplay_gui.loading_next_challenge.timer_bar.timeout.connect(_on_next_challenge_created)
 
 
 func _destroy_connections() -> void:
@@ -64,6 +66,7 @@ func _destroy_connections() -> void:
 	game.combo_mngr.combo_broken.disconnect(_on_combo_broken)
 	game.gameplay_gui.request_accepted.disconnect(_on_request_accepted)
 	game.gameplay_gui.request_rejected.disconnect(_on_request_rejected)
+	game.gameplay_gui.loading_next_challenge.timer_bar.timeout.disconnect(_on_next_challenge_created)
 
 
 func _create_request_challenge() -> RequestChallenge:
@@ -129,10 +132,11 @@ func _on_correct_request_guess() -> void:
 		game.gameplay_gui.update_max_combo(game.max_combo)
 	game.gameplay_gui.update_score(game.score)
 	game.gameplay_gui.update_correct_guessess(game.correct_guesses)
+	game.gameplay_gui.prepare_next_challenge(game.next_challenge_delay, true, game.current_challenge)
 
 
 func _on_failed_request_guess() -> void:
-	game.stamina_timer.remove_time(game.stamina_lose_sec)
+	game.gameplay_gui.prepare_next_challenge(game.stamina_lose_sec, false, game.current_challenge)
 	game.combo_mngr.break_combo()
 
 
@@ -160,3 +164,7 @@ func _on_request_accepted() -> void:
 	else:
 		_on_failed_request_guess()
 	_setup_next_challenge()
+
+
+func _on_next_challenge_created() -> void:
+	game.gameplay_gui.change_game_screen_visibility(true)

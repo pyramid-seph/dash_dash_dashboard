@@ -5,6 +5,7 @@ extends Node
 @export var stamina_sec: float = 60.0
 @export var stamina_gain_sec: float = 10.0
 @export var stamina_lose_sec: float = 5.0
+@export var next_challenge_delay: float = 1.0
 @export var base_points_correct_guess: int = 100
 @export var base_bonus_points: int = 500
 

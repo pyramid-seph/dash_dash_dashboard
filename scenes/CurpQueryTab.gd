@@ -1,5 +1,7 @@
 extends HBoxContainer
 
+@export var title: String
+
 @onready var full_name := $VBoxContainer/FullName as Label
 @onready var age := $VBoxContainer/Age as Label
 @onready var address := $VBoxContainer/Address as Label

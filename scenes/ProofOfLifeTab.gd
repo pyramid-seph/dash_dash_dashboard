@@ -1,5 +1,7 @@
 extends VBoxContainer
 
+@export var title: String
+
 @onready var person_image := $Video/PersonImage as PersonImage
 
 

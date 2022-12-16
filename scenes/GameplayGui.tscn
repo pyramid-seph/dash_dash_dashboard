@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cdd2qox50mycb"]
+[gd_scene load_steps=14 format=3 uid="uid://bm2rqgydt3d85"]
 
 [ext_resource type="Script" path="res://scenes/GameplayGui.gd" id="1_6yfmw"]
 [ext_resource type="PackedScene" uid="uid://xux6yu5r6j2h" path="res://scenes/StaminaBar.tscn" id="2_0eg3r"]
@@ -8,7 +8,11 @@
 [ext_resource type="Script" path="res://scenes/UserDataTab.gd" id="3_g15n0"]
 [ext_resource type="PackedScene" uid="uid://bol70ddbnwtv6" path="res://scenes/PersonImage.tscn" id="3_vdsu5"]
 [ext_resource type="Script" path="res://scenes/ProofOfLifeTab.gd" id="4_1il7u"]
+[ext_resource type="Script" path="res://scenes/ChallengeTabs.gd" id="5_u14hm"]
 [ext_resource type="Script" path="res://scenes/GameOverPanel.gd" id="6_cvt1o"]
+[ext_resource type="Texture2D" uid="uid://1yc6pjqt5yb" path="res://assets/ui_bar_foreground.png" id="9_ckbef"]
+[ext_resource type="Script" path="res://scenes/LoadingNextChallenge.gd" id="11_cex2j"]
+[ext_resource type="PackedScene" uid="uid://cd3ciay2hra0b" path="res://scenes/timer_bar.tscn" id="11_xp18w"]
 
 [node name="GUI" type="Control"]
 layout_mode = 3
@@ -75,159 +79,269 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
+[node name="VSeparator" type="VSeparator" parent="GameContainer/VBoxContainer/HUD"]
+layout_mode = 2
+
 [node name="ScorePanel" parent="GameContainer/VBoxContainer/HUD" instance=ExtResource("3_6jtmv")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="VSeparator2" type="VSeparator" parent="GameContainer/VBoxContainer/HUD"]
+layout_mode = 2
 
 [node name="RequestComboCounter" parent="GameContainer/VBoxContainer/HUD" instance=ExtResource("3_fqvos")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="GridContainer" type="HBoxContainer" parent="GameContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="GameContainer/VBoxContainer/HUD"]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="GameContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="GameContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="ChallengeButtons" type="VBoxContainer" parent="GameContainer/VBoxContainer/GridContainer"]
-visible = false
-layout_mode = 2
-
-[node name="ChallengesLabel" type="Label" parent="GameContainer/VBoxContainer/GridContainer/ChallengeButtons"]
-layout_mode = 2
-text = "Challenges"
-
-[node name="ChallengeOneButton" type="Button" parent="GameContainer/VBoxContainer/GridContainer/ChallengeButtons"]
-layout_mode = 2
-text = "ONE"
-
-[node name="ChallengeTwoButton" type="Button" parent="GameContainer/VBoxContainer/GridContainer/ChallengeButtons"]
-layout_mode = 2
-text = "TWO"
-
-[node name="ChallengeThreeButton" type="Button" parent="GameContainer/VBoxContainer/GridContainer/ChallengeButtons"]
-layout_mode = 2
-text = "THREE"
-
-[node name="VBoxContainer" type="VBoxContainer" parent="GameContainer/VBoxContainer/GridContainer"]
-layout_mode = 2
+[node name="ChallengeContainer" type="VBoxContainer" parent="GameContainer/VBoxContainer/Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 1024.0
+offset_bottom = 536.0
 size_flags_horizontal = 3
 
-[node name="ChallengeTabs" type="TabContainer" parent="GameContainer/VBoxContainer/GridContainer/VBoxContainer"]
+[node name="ChallengeTabs" type="TabContainer" parent="GameContainer/VBoxContainer/Control/ChallengeContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+tab_alignment = 1
+script = ExtResource("5_u14hm")
 
-[node name="UserDataTab" type="HBoxContainer" parent="GameContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs"]
+[node name="UserDataTab" type="HBoxContainer" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs"]
 unique_name_in_owner = true
 layout_mode = 2
 script = ExtResource("3_g15n0")
+title = "User provided data"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="GameContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/UserDataTab"]
+[node name="VBoxContainer" type="VBoxContainer" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs/UserDataTab"]
 layout_mode = 2
 
-[node name="FullName" type="Label" parent="GameContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/UserDataTab/VBoxContainer"]
+[node name="FullName" type="Label" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs/UserDataTab/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
 text = "Name: My othercool full name"
 
-[node name="Age" type="Label" parent="GameContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/UserDataTab/VBoxContainer"]
+[node name="Age" type="Label" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs/UserDataTab/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
 text = "Age: My Cool Age"
 
-[node name="Address" type="Label" parent="GameContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/UserDataTab/VBoxContainer"]
+[node name="Address" type="Label" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs/UserDataTab/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
 text = "Address My Cool Address"
 
-[node name="Curp" type="Label" parent="GameContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/UserDataTab/VBoxContainer"]
+[node name="Curp" type="Label" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs/UserDataTab/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
 text = "Address My Cool Address"
 
-[node name="Reviewed" type="CheckBox" parent="GameContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/UserDataTab/VBoxContainer"]
+[node name="Reviewed" type="CheckBox" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs/UserDataTab/VBoxContainer"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 text = "Revisado"
 
-[node name="PersonImage" parent="GameContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/UserDataTab" instance=ExtResource("3_vdsu5")]
+[node name="PersonImage" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs/UserDataTab" instance=ExtResource("3_vdsu5")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 
-[node name="ProofOfLifeTab" type="VBoxContainer" parent="GameContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs"]
+[node name="ProofOfLifeTab" type="VBoxContainer" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 script = ExtResource("4_1il7u")
+title = "Life proof"
 
-[node name="Video" type="CenterContainer" parent="GameContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/ProofOfLifeTab"]
+[node name="Video" type="CenterContainer" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs/ProofOfLifeTab"]
 layout_mode = 2
 size_flags_vertical = 3
 use_top_left = true
 
-[node name="PersonImage" parent="GameContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/ProofOfLifeTab/Video" instance=ExtResource("3_vdsu5")]
+[node name="PersonImage" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs/ProofOfLifeTab/Video" instance=ExtResource("3_vdsu5")]
 layout_mode = 2
 
-[node name="Reviewed" type="CheckBox" parent="GameContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/ProofOfLifeTab"]
+[node name="Reviewed" type="CheckBox" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs/ProofOfLifeTab"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 text = "Revisado"
 
-[node name="CurpQueryTab" type="HBoxContainer" parent="GameContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs"]
+[node name="CurpQueryTab" type="HBoxContainer" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 script = ExtResource("2_kph81")
+title = "XCrash data"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="GameContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/CurpQueryTab"]
+[node name="VBoxContainer" type="VBoxContainer" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs/CurpQueryTab"]
 layout_mode = 2
 
-[node name="FullName" type="Label" parent="GameContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/CurpQueryTab/VBoxContainer"]
+[node name="FullName" type="Label" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs/CurpQueryTab/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
 text = "Name: My othercool full name"
 
-[node name="Age" type="Label" parent="GameContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/CurpQueryTab/VBoxContainer"]
+[node name="Age" type="Label" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs/CurpQueryTab/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
 text = "Age: My Cool Age"
 
-[node name="Address" type="Label" parent="GameContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/CurpQueryTab/VBoxContainer"]
+[node name="Address" type="Label" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs/CurpQueryTab/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
 text = "Address My Cool Address"
 
-[node name="Curp" type="Label" parent="GameContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/CurpQueryTab/VBoxContainer"]
+[node name="Curp" type="Label" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs/CurpQueryTab/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
 text = "Address My Cool Address"
 
-[node name="Reviewed" type="CheckBox" parent="GameContainer/VBoxContainer/GridContainer/VBoxContainer/ChallengeTabs/CurpQueryTab/VBoxContainer"]
+[node name="Reviewed" type="CheckBox" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs/CurpQueryTab/VBoxContainer"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 text = "Revisado"
 
-[node name="CommitmentButtons" type="HBoxContainer" parent="GameContainer/VBoxContainer/GridContainer/VBoxContainer"]
+[node name="CommitmentButtons" type="HBoxContainer" parent="GameContainer/VBoxContainer/Control/ChallengeContainer"]
 layout_mode = 2
 
-[node name="RejectButton" type="Button" parent="GameContainer/VBoxContainer/GridContainer/VBoxContainer/CommitmentButtons"]
+[node name="RejectButton" type="Button" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/CommitmentButtons"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Reject"
 
-[node name="AcceptButton" type="Button" parent="GameContainer/VBoxContainer/GridContainer/VBoxContainer/CommitmentButtons"]
+[node name="AcceptButton" type="Button" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/CommitmentButtons"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Accept
 "
+
+[node name="GuessResult" type="Control" parent="GameContainer/VBoxContainer/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="IncorrectGuessPanel" type="PanelContainer" parent="GameContainer/VBoxContainer/Control/GuessResult"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameContainer/VBoxContainer/Control/GuessResult/IncorrectGuessPanel"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="GameContainer/VBoxContainer/Control/GuessResult/IncorrectGuessPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+bbcode_enabled = true
+text = "[p align=center][font size=32] [shake rate=10 level=10]WRONG![/shake][/font][/p]
+"
+fit_content_height = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="GameContainer/VBoxContainer/Control/GuessResult/IncorrectGuessPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+step = 0.0
+value = 100.0
+texture_under = ExtResource("9_ckbef")
+texture_progress = ExtResource("9_ckbef")
+tint_under = Color(0.494118, 0.494118, 0.494118, 1)
+tint_progress = Color(0, 1, 1, 1)
+
+[node name="CorrectGuessPanel" type="PanelContainer" parent="GameContainer/VBoxContainer/Control/GuessResult"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameContainer/VBoxContainer/Control/GuessResult/CorrectGuessPanel"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="GameContainer/VBoxContainer/Control/GuessResult/CorrectGuessPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+bbcode_enabled = true
+text = "[p align=center][font size=64]CORRECT![/font][/p]
+"
+fit_content_height = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="GameContainer/VBoxContainer/Control/GuessResult/CorrectGuessPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+step = 0.0
+value = 100.0
+texture_under = ExtResource("9_ckbef")
+texture_progress = ExtResource("9_ckbef")
+tint_under = Color(0.494118, 0.494118, 0.494118, 1)
+tint_progress = Color(0, 1, 1, 1)
+
+[node name="LoadingNextChallenge" type="CenterContainer" parent="GameContainer/VBoxContainer/Control"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("11_cex2j")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameContainer/VBoxContainer/Control/LoadingNextChallenge"]
+layout_mode = 2
+
+[node name="ResultLabel" type="Label" parent="GameContainer/VBoxContainer/Control/LoadingNextChallenge/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Ready?..."
+horizontal_alignment = 1
+
+[node name="TimerBar" parent="GameContainer/VBoxContainer/Control/LoadingNextChallenge/VBoxContainer" instance=ExtResource("11_xp18w")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 8)
+layout_mode = 2
+size_flags_horizontal = 4
+step = 0.0
+value = 100.0
+fill_mode = 6
+nine_patch_stretch = true
+texture_under = ExtResource("9_ckbef")
+texture_progress = ExtResource("9_ckbef")
+tint_under = Color(0, 0, 0, 1)
+tint_progress = Color(1, 0.376471, 0.027451, 1)
 
 [node name="DebugPanel" type="PanelContainer" parent="."]
 visible = false
@@ -326,6 +440,14 @@ size_flags_horizontal = 0
 size_flags_vertical = 8
 text = "[ESC] Title screen"
 
+[node name="IncorrectGuessPanel" type="PanelContainer" parent="GameOverResults"]
+visible = false
+layout_mode = 2
+
+[node name="CorrectGuessPanel" type="PanelContainer" parent="GameOverResults"]
+visible = false
+layout_mode = 2
+
 [node name="QuotePanel" type="PanelContainer" parent="."]
 visible = false
 layout_mode = 1
@@ -370,9 +492,9 @@ text = "[font size=32]
 
 [ul]Every time you guess correctly, you [u]gain[/u] some [color=teal]stamina[/color] and you also start or extend your  [color=yellow]combo[/color] counter.[/ul]
 
-[ul]If your guess is incorrect, you [u]lose[/u] some [color=teal]stamina[/color][/ul] and  your current  [color=yellow]combo[/color] [shake rate=10 level=10]breaks[/shake].[/ul]
+[ul]If your guess is incorrect, you [u]lose[/u] some [color=teal]stamina[/color] and  your current  [color=yellow]combo[/color] [shake rate=10 level=10]breaks[/shake].[/ul]
 
-[ul]If your stamina reaches zero,  [color=red]it is game over, man![/color][/ul]
+[ul]If your stamina reaches zero,  [color=red]it's game over, man![/color][/ul]
 [/font]"
 
 [node name="ExitLabel" type="Label" parent="IntructionsPanel"]
@@ -406,5 +528,7 @@ offset_bottom = 40.0
 layout_mode = 2
 text = "CORRECT!!!"
 
-[connection signal="pressed" from="GameContainer/VBoxContainer/GridContainer/VBoxContainer/CommitmentButtons/RejectButton" to="." method="_on_reject_button_pressed"]
-[connection signal="pressed" from="GameContainer/VBoxContainer/GridContainer/VBoxContainer/CommitmentButtons/AcceptButton" to="." method="_on_accept_button_pressed"]
+[connection signal="pressed" from="GameContainer/VBoxContainer/Control/ChallengeContainer/CommitmentButtons/RejectButton" to="." method="_on_reject_button_pressed"]
+[connection signal="pressed" from="GameContainer/VBoxContainer/Control/ChallengeContainer/CommitmentButtons/AcceptButton" to="." method="_on_accept_button_pressed"]
+[connection signal="timeout" from="GameContainer/VBoxContainer/Control/LoadingNextChallenge" to="." method="_on_loading_next_challenge_timeout"]
+[connection signal="timeout" from="GameContainer/VBoxContainer/Control/LoadingNextChallenge/VBoxContainer/TimerBar" to="GameContainer/VBoxContainer/Control/LoadingNextChallenge" method="_on_timer_bar_timeout"]

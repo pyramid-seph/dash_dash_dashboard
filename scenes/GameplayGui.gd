@@ -19,6 +19,10 @@ signal request_rejected
 @onready var error_explanation_panel := $ErrorExplanationPanel
 @onready var correct_panel := $CorrectPanel
 @onready var game_panel := $GameContainer
+@onready var incorrect_guess_panel := %IncorrectGuessPanel
+@onready var correct_guess_panel := %CorrectGuessPanel
+@onready var loading_next_challenge := %LoadingNextChallenge
+@onready var challenge_container := %ChallengeContainer
 
 
 var request_challenge: RequestChallenge:
@@ -36,6 +40,15 @@ var request_challenge: RequestChallenge:
 			user_data_tab.populate(value.person_data_source, value.original_person)
 			proof_of_life_tab.populate(value.person_data_source, value.proof_of_life_person)
 			debug.text = "\n".join([str(value.original_person), "accept?: %s" % str(value.should_be_accepted())])
+
+
+func stop_next_challenge() -> void:
+	loading_next_challenge.stop()
+
+
+func prepare_next_challenge(duration_sec: float, is_correct: bool, challenge: RequestChallenge) -> void:
+	challenge_container.visible = false
+	loading_next_challenge.start(duration_sec, is_correct, challenge)
 
 
 func change_game_screen_visibility(value: bool) -> void:
@@ -100,3 +113,7 @@ func _on_accept_button_pressed() -> void:
 
 func _on_reject_button_pressed() -> void:
 	request_rejected.emit()
+
+
+func _on_loading_next_challenge_timeout() -> void:
+	challenge_container.visible = true
