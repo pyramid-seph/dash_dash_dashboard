@@ -14,17 +14,20 @@ func _build_error_message(challenge: RequestChallenge) -> String:
 	var diff_proof: Array[String]= challenge.get_life_proof_diff()
 	var diff_curp: Array[String] = challenge.get_curp_query_diff()
 	if not diff_proof.is_empty(): title += "Life proof image is different. "
-	if not diff_curp.is_empty(): title += "XCrash data is different: "
+	if diff_curp.is_empty(): 
+		title += "No XCrash inconsistencies."
+	else:
+		title += "XCrash inconsistencies: "
 	for diff in diff_curp:
 		match diff:
 			PersonDescriptor.DESCRIPTION_NAME:
-				diff_curp_str.append("name")
+				diff_curp_str.append("NAME")
 			PersonDescriptor.DESCRIPTION_AGE:
-				diff_curp_str.append("age")
+				diff_curp_str.append("AGE")
 			PersonDescriptor.DESCRIPTION_ADDRESS:
-				diff_curp_str.append("address")
+				diff_curp_str.append("ADDRESS")
 			PersonDescriptor.DESCRIPTION_CURP:
-				diff_curp_str.append("CURP")
+				diff_curp_str.append("ID")
 	return title + ", ".join(diff_curp_str)
 
 
