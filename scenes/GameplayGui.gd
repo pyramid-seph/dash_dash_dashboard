@@ -19,10 +19,9 @@ signal request_rejected
 @onready var error_explanation_panel := $ErrorExplanationPanel
 @onready var correct_panel := $CorrectPanel
 @onready var game_panel := $GameContainer
-@onready var incorrect_guess_panel := %IncorrectGuessPanel
-@onready var correct_guess_panel := %CorrectGuessPanel
 @onready var loading_next_challenge := %LoadingNextChallenge
 @onready var challenge_container := %ChallengeContainer
+@onready var start_delay_container := %StartDelayContainer
 
 
 var request_challenge: RequestChallenge:
@@ -40,6 +39,14 @@ var request_challenge: RequestChallenge:
 			user_data_tab.populate(value.person_data_source, value.original_person)
 			proof_of_life_tab.populate(value.person_data_source, value.proof_of_life_person)
 			debug.text = "\n".join([str(value.original_person), "accept?: %s" % str(value.should_be_accepted())])
+
+
+func start_initial_delay(time_sec: float) -> void:
+	start_delay_container.start(time_sec)
+
+
+func stop_initial_delay() -> void:
+	start_delay_container.stop()
 
 
 func stop_next_challenge() -> void:

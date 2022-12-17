@@ -6,7 +6,7 @@ func _on_enter() -> void:
 	_setup_connections()
 	_setup_next_challenge()
 	_setup_gui()
-	game.stamina_timer.start(game.stamina_sec)
+	game.gameplay_gui.start_initial_delay(game.initial_delay_sec)
 
 
 func _update(_delta: float) -> void:
@@ -30,6 +30,10 @@ func _on_exit() -> void:
 	_destroy_connections()
 	game.gameplay_gui.change_game_screen_visibility(false)
 	game.gameplay_gui.stop_next_challenge()
+	game.gameplay_gui.stop_initial_delay()
+	game.stamina_timer.paused = false
+	game.stamina_timer.stop()
+	game.gameplay_gui.challenge_container.visible = false
 
 
 func _reset_game_state() -> void:
@@ -47,6 +51,9 @@ func _setup_gui() -> void:
 	game.gameplay_gui.update_correct_guessess(game.correct_guesses)
 	game.gameplay_gui.update_score(game.score)
 	game.gameplay_gui.change_game_screen_visibility(true)
+	game.stamina_timer.start(game.stamina_sec)
+	# Pausing so time_left is equal to max_wait_time while the initial delay happen.
+	game.stamina_timer.paused = true
 
 
 func _setup_connections() -> void:
@@ -57,6 +64,7 @@ func _setup_connections() -> void:
 	game.gameplay_gui.request_accepted.connect(_on_request_accepted)
 	game.gameplay_gui.request_rejected.connect(_on_request_rejected)
 	game.gameplay_gui.loading_next_challenge.timer_bar.timeout.connect(_on_next_challenge_created)
+	game.gameplay_gui.start_delay_container.timeout.connect(_on_start_delay_container_timeout)
 
 
 func _destroy_connections() -> void:
@@ -67,6 +75,7 @@ func _destroy_connections() -> void:
 	game.gameplay_gui.request_accepted.disconnect(_on_request_accepted)
 	game.gameplay_gui.request_rejected.disconnect(_on_request_rejected)
 	game.gameplay_gui.loading_next_challenge.timer_bar.timeout.disconnect(_on_next_challenge_created)
+	game.gameplay_gui.start_delay_container.timeout.disconnect(_on_start_delay_container_timeout)
 
 
 func _create_request_challenge() -> RequestChallenge:
@@ -168,3 +177,9 @@ func _on_request_accepted() -> void:
 
 func _on_next_challenge_created() -> void:
 	game.gameplay_gui.change_game_screen_visibility(true)
+
+
+func _on_start_delay_container_timeout() -> void:
+	game.stamina_timer.paused = false
+	game.stamina_timer.start(game.stamina_sec)
+	game.gameplay_gui.challenge_container.visible = true

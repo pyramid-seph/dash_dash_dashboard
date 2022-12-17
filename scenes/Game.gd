@@ -2,6 +2,7 @@ class_name Game
 extends Node
 
 
+@export var initial_delay_sec: float = 3.0
 @export var stamina_sec: float = 60.0
 @export var stamina_gain_sec: float = 10.0
 @export var stamina_lose_sec: float = 5.0

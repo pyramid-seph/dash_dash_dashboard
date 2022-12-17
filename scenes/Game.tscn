@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://scenes/PauseState.gd" id="4_bmc37"]
 [ext_resource type="PackedScene" uid="uid://bqjywyns0o5n8" path="res://scenes/ClampedTimer.tscn" id="4_ukup6"]
 [ext_resource type="Script" path="res://scenes/PlayingState.gd" id="5_n3sen"]
-[ext_resource type="PackedScene" uid="uid://cdd2qox50mycb" path="res://scenes/GameplayGui.tscn" id="5_pdk4a"]
+[ext_resource type="PackedScene" uid="uid://bm2rqgydt3d85" path="res://scenes/GameplayGui.tscn" id="5_pdk4a"]
 [ext_resource type="Script" path="res://scenes/QuoteState.gd" id="5_xam4v"]
 [ext_resource type="Script" path="res://scenes/GameOverState.gd" id="6_i1mgl"]
 
