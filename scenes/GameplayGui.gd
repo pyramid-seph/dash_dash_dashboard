@@ -19,6 +19,7 @@ signal request_rejected
 @onready var loading_next_challenge := %LoadingNextChallenge
 @onready var challenge_container := %ChallengeContainer
 @onready var start_delay_container := %StartDelayContainer
+@onready var challenge_tabs := %ChallengeTabs as TabContainer
 
 
 var request_challenge: RequestChallenge:
@@ -26,6 +27,7 @@ var request_challenge: RequestChallenge:
 		return request_challenge
 	set(value):
 		request_challenge = value
+		challenge_tabs.current_tab = 0
 		if value == null:
 			curp_query_tab.clear()
 			user_data_tab.clear()
