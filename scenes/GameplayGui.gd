@@ -7,7 +7,6 @@ signal request_rejected
 @onready var curp_query_tab = %CurpQueryTab
 @onready var user_data_tab = %UserDataTab
 @onready var proof_of_life_tab = %ProofOfLifeTab
-@onready var debug := $DebugPanel/Debug as Label
 @onready var pause_panel = $PausePanel as PanelContainer
 @onready var game_over_results = $GameOverResults as PanelContainer
 @onready var stamina_bar := %StaminaTimer as StaminaBar
@@ -31,12 +30,10 @@ var request_challenge: RequestChallenge:
 			curp_query_tab.clear()
 			user_data_tab.clear()
 			proof_of_life_tab.clear()
-			debug.text = "No challenge hass been set"
 		else:
 			curp_query_tab.populate(value.person_data_source, value.curp_query_person)
 			user_data_tab.populate(value.person_data_source, value.original_person)
 			proof_of_life_tab.populate(value.person_data_source, value.proof_of_life_person)
-			debug.text = "\n".join([str(value.original_person), "accept?: %s" % str(value.should_be_accepted())])
 
 
 func start_initial_delay(time_sec: float) -> void:
