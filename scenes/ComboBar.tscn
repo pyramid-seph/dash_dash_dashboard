@@ -13,17 +13,14 @@ script = ExtResource("1_o0wj5")
 
 [node name="Label" type="Label" parent="."]
 unique_name_in_owner = true
-offset_right = 1024.0
-offset_bottom = 26.0
+layout_mode = 2
 text = "COMBO!!!"
 horizontal_alignment = 1
 
 [node name="ProgressBar" type="TextureProgressBar" parent="."]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 8)
-offset_top = 30.0
-offset_right = 1024.0
-offset_bottom = 38.0
+layout_mode = 2
 step = 0.0
 value = 100.0
 fill_mode = 6
@@ -39,8 +36,6 @@ tint_progress = Color(1, 1, 0, 1)
 
 [node name="MultiplierLabel" type="Label" parent="."]
 unique_name_in_owner = true
-offset_top = 42.0
-offset_right = 1024.0
-offset_bottom = 68.0
+layout_mode = 2
 text = "99 x 3.0"
 horizontal_alignment = 1
