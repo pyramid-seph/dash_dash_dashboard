@@ -109,9 +109,10 @@ Utils="*res://autoload/Utils.gd"
 
 [display]
 
-window/size/viewport_width=1024
-window/size/viewport_height=960
+window/size/viewport_width=1280
+window/size/viewport_height=1280
 window/stretch/mode="viewport"
+window/stretch/aspect="keep_height"
 
 [input]
 

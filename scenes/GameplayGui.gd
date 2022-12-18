@@ -16,8 +16,6 @@ signal request_rejected
 @onready var title_screen := $TitleScreen
 @onready var quote_panel := $QuotePanel
 @onready var instructions_panel := $IntructionsPanel
-@onready var error_explanation_panel := $ErrorExplanationPanel
-@onready var correct_panel := $CorrectPanel
 @onready var game_panel := $GameContainer
 @onready var loading_next_challenge := %LoadingNextChallenge
 @onready var challenge_container := %ChallengeContainer
@@ -72,10 +70,6 @@ func change_quote_visibility(value: bool) -> void:
 
 func change_instructions_visibility(value: bool) -> void:
 	instructions_panel.visible = value
-
-
-func change_correct_panel_visibility(value: bool) -> void:
-	correct_panel.visible = value
 
 
 func update_score(value: int) -> void:
