@@ -26,7 +26,6 @@ script = ExtResource("1_6yfmw")
 
 [node name="TitleScreen" type="PanelContainer" parent="."]
 visible = false
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -34,33 +33,26 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="TitleScreen"]
-layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TitleScreen/CenterContainer"]
-layout_mode = 2
 
 [node name="TitleLabel" type="Label" parent="TitleScreen/CenterContainer/VBoxContainer"]
-layout_mode = 2
 text = "DASH DASH DASHBOARD!"
 horizontal_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="TitleScreen/CenterContainer/VBoxContainer"]
-layout_mode = 2
 
 [node name="PlayLabel" type="Label" parent="TitleScreen/CenterContainer/VBoxContainer"]
-layout_mode = 2
 text = "[Spacebar] Play!"
 horizontal_alignment = 1
 
 [node name="ExitLabel" type="Label" parent="TitleScreen"]
-layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 text = "[ESC] Exit"
 
 [node name="GameContainer" type="PanelContainer" parent="."]
 visible = false
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -68,15 +60,12 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GameContainer"]
-layout_mode = 2
 
 [node name="HUD" type="HBoxContainer" parent="GameContainer/VBoxContainer"]
-layout_mode = 2
 size_flags_vertical = 0
 alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="GameContainer/VBoxContainer/HUD"]
-layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 16
@@ -85,14 +74,11 @@ theme_override_constants/margin_bottom = 16
 
 [node name="StaminaTimer" parent="GameContainer/VBoxContainer/HUD/MarginContainer" instance=ExtResource("2_0eg3r")]
 unique_name_in_owner = true
-layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="VSeparator" type="VSeparator" parent="GameContainer/VBoxContainer/HUD"]
-layout_mode = 2
 
 [node name="MarginContainer2" type="MarginContainer" parent="GameContainer/VBoxContainer/HUD"]
-layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 16
@@ -101,14 +87,11 @@ theme_override_constants/margin_bottom = 16
 
 [node name="ScorePanel" parent="GameContainer/VBoxContainer/HUD/MarginContainer2" instance=ExtResource("3_6jtmv")]
 unique_name_in_owner = true
-layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="VSeparator2" type="VSeparator" parent="GameContainer/VBoxContainer/HUD"]
-layout_mode = 2
 
 [node name="MarginContainer3" type="MarginContainer" parent="GameContainer/VBoxContainer/HUD"]
-layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 16
@@ -117,21 +100,19 @@ theme_override_constants/margin_bottom = 16
 
 [node name="RequestComboCounter" parent="GameContainer/VBoxContainer/HUD/MarginContainer3" instance=ExtResource("3_fqvos")]
 unique_name_in_owner = true
-layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 
 [node name="HSeparator" type="HSeparator" parent="GameContainer/VBoxContainer"]
-layout_mode = 2
 
 [node name="Control" type="Control" parent="GameContainer/VBoxContainer"]
-layout_mode = 2
+layout_mode = 3
+anchors_preset = 0
 size_flags_vertical = 3
 
 [node name="ChallengeContainer" type="VBoxContainer" parent="GameContainer/VBoxContainer/Control"]
 unique_name_in_owner = true
 visible = false
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -140,7 +121,6 @@ grow_vertical = 2
 size_flags_horizontal = 3
 
 [node name="ChallengeTabs" type="TabContainer" parent="GameContainer/VBoxContainer/Control/ChallengeContainer"]
-layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 tab_alignment = 1
@@ -148,12 +128,14 @@ script = ExtResource("5_u14hm")
 
 [node name="UserDataTab" type="HBoxContainer" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs"]
 unique_name_in_owner = true
-layout_mode = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 31.0
 script = ExtResource("3_g15n0")
 title = "User provided data"
 
 [node name="MarginContainer" type="MarginContainer" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs/UserDataTab"]
-layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 16
@@ -161,30 +143,24 @@ theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 16
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs/UserDataTab/MarginContainer"]
-layout_mode = 2
 
 [node name="FullName" type="Label" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs/UserDataTab/MarginContainer/VBoxContainer"]
-layout_mode = 2
 size_flags_vertical = 6
 text = "Name: My othercool full name"
 
 [node name="Age" type="Label" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs/UserDataTab/MarginContainer/VBoxContainer"]
-layout_mode = 2
 size_flags_vertical = 6
 text = "Age: My Cool Age"
 
 [node name="Address" type="Label" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs/UserDataTab/MarginContainer/VBoxContainer"]
-layout_mode = 2
 size_flags_vertical = 6
 text = "Address My Cool Address"
 
 [node name="Curp" type="Label" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs/UserDataTab/MarginContainer/VBoxContainer"]
-layout_mode = 2
 size_flags_vertical = 6
 text = "Address My Cool Address"
 
 [node name="MarginContainer2" type="MarginContainer" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs/UserDataTab"]
-layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 16
@@ -192,25 +168,21 @@ theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 16
 
 [node name="PersonImage" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs/UserDataTab/MarginContainer2" instance=ExtResource("3_vdsu5")]
-layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 
 [node name="ProofOfLifeTab" type="VBoxContainer" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs"]
 unique_name_in_owner = true
 visible = false
-layout_mode = 2
 script = ExtResource("4_1il7u")
 title = "Life proof data"
 
 [node name="PersonImage" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs/ProofOfLifeTab" instance=ExtResource("3_vdsu5")]
-layout_mode = 2
 size_flags_horizontal = 1
 size_flags_vertical = 3
 
 [node name="Reviewed" type="CheckBox" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs/ProofOfLifeTab"]
 visible = false
-layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 text = "Revisado"
@@ -218,12 +190,10 @@ text = "Revisado"
 [node name="CurpQueryTab" type="HBoxContainer" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs"]
 unique_name_in_owner = true
 visible = false
-layout_mode = 2
 script = ExtResource("2_kph81")
 title = "XCrash data"
 
 [node name="MarginContainer" type="MarginContainer" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs/CurpQueryTab"]
-layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 16
@@ -231,45 +201,36 @@ theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 16
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs/CurpQueryTab/MarginContainer"]
-layout_mode = 2
 
 [node name="FullName" type="Label" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs/CurpQueryTab/MarginContainer/VBoxContainer"]
-layout_mode = 2
 size_flags_vertical = 6
 text = "Name: My othercool full name"
 
 [node name="Age" type="Label" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs/CurpQueryTab/MarginContainer/VBoxContainer"]
-layout_mode = 2
 size_flags_vertical = 6
 text = "Age: My Cool Age"
 
 [node name="Address" type="Label" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs/CurpQueryTab/MarginContainer/VBoxContainer"]
-layout_mode = 2
 size_flags_vertical = 6
 text = "Address My Cool Address"
 
 [node name="Curp" type="Label" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs/CurpQueryTab/MarginContainer/VBoxContainer"]
-layout_mode = 2
 size_flags_vertical = 6
 text = "Address My Cool Address"
 
 [node name="Reviewed" type="CheckBox" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs/CurpQueryTab/MarginContainer/VBoxContainer"]
 visible = false
-layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 text = "Revisado"
 
 [node name="CommitmentButtons" type="HBoxContainer" parent="GameContainer/VBoxContainer/Control/ChallengeContainer"]
-layout_mode = 2
 
 [node name="RejectButton" type="Button" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/CommitmentButtons"]
-layout_mode = 2
 size_flags_horizontal = 3
 text = "Reject"
 
 [node name="AcceptButton" type="Button" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/CommitmentButtons"]
-layout_mode = 2
 size_flags_horizontal = 3
 text = "Accept
 "
@@ -277,7 +238,6 @@ text = "Accept
 [node name="LoadingNextChallenge" type="CenterContainer" parent="GameContainer/VBoxContainer/Control"]
 unique_name_in_owner = true
 visible = false
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -286,11 +246,9 @@ grow_vertical = 2
 script = ExtResource("11_cex2j")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GameContainer/VBoxContainer/Control/LoadingNextChallenge"]
-layout_mode = 2
 
 [node name="ResultLabel" type="Label" parent="GameContainer/VBoxContainer/Control/LoadingNextChallenge/VBoxContainer"]
 unique_name_in_owner = true
-layout_mode = 2
 size_flags_horizontal = 4
 text = "Ready?..."
 horizontal_alignment = 1
@@ -298,7 +256,6 @@ horizontal_alignment = 1
 [node name="TimerBar" parent="GameContainer/VBoxContainer/Control/LoadingNextChallenge/VBoxContainer" instance=ExtResource("11_xp18w")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 8)
-layout_mode = 2
 size_flags_horizontal = 4
 step = 0.0
 value = 100.0
@@ -312,7 +269,6 @@ tint_progress = Color(1, 0.376471, 0.027451, 1)
 [node name="StartDelayContainer" type="CenterContainer" parent="GameContainer/VBoxContainer/Control"]
 unique_name_in_owner = true
 visible = false
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -321,7 +277,6 @@ grow_vertical = 2
 script = ExtResource("13_vkelh")
 
 [node name="DelayLabel" type="Label" parent="GameContainer/VBoxContainer/Control/StartDelayContainer"]
-layout_mode = 2
 text = "3"
 
 [node name="Timer" type="Timer" parent="GameContainer/VBoxContainer/Control/StartDelayContainer/DelayLabel"]
@@ -330,7 +285,6 @@ one_shot = true
 [node name="DebugPanel" type="PanelContainer" parent="."]
 visible = false
 custom_minimum_size = Vector2(512, 0)
-layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -343,7 +297,6 @@ grow_horizontal = 0
 grow_vertical = 2
 
 [node name="Debug" type="Label" parent="DebugPanel"]
-layout_mode = 2
 size_flags_vertical = 1
 text = "DEBUG TEXT"
 autowrap_mode = 3
@@ -351,7 +304,6 @@ autowrap_mode = 3
 [node name="PausePanel" type="PanelContainer" parent="."]
 process_mode = 3
 visible = false
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -359,13 +311,11 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Pause" type="Label" parent="PausePanel"]
-layout_mode = 2
 text = "PAUSA"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Exit" type="Label" parent="PausePanel"]
-layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 text = "[ESC] Title Screen"
@@ -373,7 +323,6 @@ text = "[ESC] Title Screen"
 [node name="GameOverResults" type="PanelContainer" parent="."]
 process_mode = 3
 visible = false
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -382,59 +331,48 @@ grow_vertical = 2
 script = ExtResource("6_cvt1o")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GameOverResults"]
-layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="GameOver" type="Label" parent="GameOverResults/VBoxContainer"]
-layout_mode = 2
 text = "GAME OVER!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="MaxCombo" type="Label" parent="GameOverResults/VBoxContainer"]
 unique_name_in_owner = true
-layout_mode = 2
 text = "100"
 
 [node name="MaxMultiplier" type="Label" parent="GameOverResults/VBoxContainer"]
 unique_name_in_owner = true
-layout_mode = 2
 text = "1.50"
 
 [node name="BonusPoints" type="Label" parent="GameOverResults/VBoxContainer"]
 unique_name_in_owner = true
-layout_mode = 2
 text = "Bonus! 999"
 
 [node name="TotalScore" type="Label" parent="GameOverResults/VBoxContainer"]
 unique_name_in_owner = true
-layout_mode = 2
 text = "99999"
 
 [node name="TryAgainLabel" type="Label" parent="GameOverResults"]
-layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 text = "[SPACEBAR] Try again!"
 
 [node name="ToTitleScreenLabel" type="Label" parent="GameOverResults"]
-layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 text = "[ESC] Title screen"
 
 [node name="IncorrectGuessPanel" type="PanelContainer" parent="GameOverResults"]
 visible = false
-layout_mode = 2
 
 [node name="CorrectGuessPanel" type="PanelContainer" parent="GameOverResults"]
 visible = false
-layout_mode = 2
 
 [node name="QuotePanel" type="PanelContainer" parent="."]
 visible = false
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -442,7 +380,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Label" type="RichTextLabel" parent="QuotePanel"]
-layout_mode = 2
 size_flags_vertical = 4
 bbcode_enabled = true
 text = "[p align=center][font size=24]\"Playing a game is the voluntary attempt to overcome unnecessary obstacles.\"[/font][/p]
@@ -450,14 +387,12 @@ text = "[p align=center][font size=24]\"Playing a game is the voluntary attempt 
 fit_content_height = true
 
 [node name="StartGameLabel" type="Label" parent="QuotePanel"]
-layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 text = "[SPACEBAR] Start game"
 
 [node name="IntructionsPanel" type="PanelContainer" parent="."]
 visible = false
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -465,7 +400,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Label" type="RichTextLabel" parent="IntructionsPanel"]
-layout_mode = 2
 bbcode_enabled = true
 text = "[font size=32]
 [ul]Check the data for any inconsistencies.[/ul]
@@ -482,14 +416,12 @@ text = "[font size=32]
 [/font]"
 
 [node name="ExitLabel" type="Label" parent="IntructionsPanel"]
-layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 text = "[SPACEBAR] OK"
 
 [node name="ErrorExplanationPanel" type="PanelContainer" parent="."]
 visible = false
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -497,19 +429,16 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="ErrorExplanationPanel"]
-layout_mode = 2
 text = "// TODO
 Explain error"
 horizontal_alignment = 1
 
 [node name="CorrectPanel" type="PanelContainer" parent="."]
 visible = false
-layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Label" type="Label" parent="CorrectPanel"]
-layout_mode = 2
 text = "CORRECT!!!"
 
 [connection signal="pressed" from="GameContainer/VBoxContainer/Control/ChallengeContainer/CommitmentButtons/RejectButton" to="." method="_on_reject_button_pressed"]

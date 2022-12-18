@@ -1,5 +1,5 @@
 class_name ComboBar
-extends Control
+extends VBoxContainer
 
 
 @onready var progress_bar := %ProgressBar as TextureProgressBar
