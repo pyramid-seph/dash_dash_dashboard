@@ -315,7 +315,7 @@ script = ExtResource("13_vkelh")
 
 [node name="DelayLabel" type="Label" parent="GameContainer/VBoxContainer/Control/StartDelayContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 192
+theme_override_font_sizes/font_size = 600
 text = "3"
 
 [node name="Timer" type="Timer" parent="GameContainer/VBoxContainer/Control/StartDelayContainer/DelayLabel"]
@@ -462,8 +462,8 @@ theme_override_constants/margin_bottom = 16
 [node name="Label" type="RichTextLabel" parent="IntructionsPanel/MarginContainer"]
 layout_mode = 2
 bbcode_enabled = true
-text = "[p align=center][font size=64]Instructions:[/font][/p]
-[font size=40]
+text = "[p align=center][font size=80]Instructions:[/font][/p]
+[font size=48]
 [ul]Check the data for any inconsistencies.[/ul]
 
 [ul]Click \"reject\" if you find any inconsistencies between the data presented on the content of the tabs.[/ul]
