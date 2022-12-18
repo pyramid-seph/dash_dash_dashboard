@@ -2,6 +2,9 @@ class_name Game
 extends Node
 
 
+@export var music_bg: AudioStream
+@export var accept_sfx: AudioStream
+@export var cancel_sfx: AudioStream
 @export var initial_delay_sec: float = 3.0
 @export var stamina_sec: float = 60.0
 @export var stamina_gain_sec: float = 10.0
@@ -33,6 +36,7 @@ var current_challenge: RequestChallenge:
 @onready var stamina_timer := $StaminaTimer as ClampedTime
 @onready var combo_mngr := $ComboManager as ComboManager
 @onready var state_machine: GameStateMachine = $GameStateMachine
+@onready var music_player: AudioStreamPlayer = $MusicPlayer
 
 
 func _ready():

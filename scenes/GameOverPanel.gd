@@ -1,5 +1,6 @@
 extends PanelContainer
 
+@export var stamina_depleted_sfx: AudioStream
 
 @onready var max_combo_label := %MaxCombo as Label
 @onready var max_multiplier_label := %MaxMultiplier as Label
@@ -12,6 +13,7 @@ func show_results(max_combo: int, max_multiplier: float, bonus_points: int, tota
 	max_multiplier_label.text = "MAX MULT: %s" % max_multiplier
 	bonus_points_label.text = "Bonus! (MAX COMBO x MAX MULT x %s): %s" % [base_bonus_points, bonus_points]
 	total_score_label.text = "Total Score: %s + %s = %s" % [old_score, bonus_points, total_score]
+	SfxManager.play(stamina_depleted_sfx)
 	visible = true
 
 func hide_results() -> void:

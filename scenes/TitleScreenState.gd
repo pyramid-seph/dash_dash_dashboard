@@ -7,8 +7,10 @@ func _on_enter() -> void:
 
 func _handle_input(event: InputEvent) -> void:
 	if event.is_action_pressed("exit"):
+		SfxManager.play(game.cancel_sfx)
 		get_tree().quit()
 	elif event.is_action_pressed("accept"):
+		SfxManager.play(game.accept_sfx)
 		state_machine.change_state(state_machine.instructions_state)
 
 

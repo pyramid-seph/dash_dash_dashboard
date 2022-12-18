@@ -4,6 +4,9 @@ extends CenterContainer
 signal timeout
 
 
+@export var correct_guess_sfx: AudioStream
+@export var wrong_guess_sfx: AudioStream
+
 @onready var timer_bar := %TimerBar
 @onready var result_label := %ResultLabel as Label
 
@@ -34,8 +37,10 @@ func _build_error_message(challenge: RequestChallenge) -> String:
 func start(time_sec: float, is_correct: bool, challenge: RequestChallenge) -> void:
 	if is_correct:
 		result_label.text = "CORRECT!\n\nReady?..."
+		SfxManager.play(correct_guess_sfx)
 	else:
 		result_label.text = "WRONG!\n\n%s\n\nReady?..." % _build_error_message(challenge)
+		SfxManager.play(wrong_guess_sfx)
 		
 	visible = true
 	timer_bar.start(time_sec)

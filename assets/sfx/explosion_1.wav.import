@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/explosion_1.wav-314604269d26790b43c0c5a9682dd
 
 [params]
 
-force/8_bit=false
+force/8_bit=true
 force/mono=false
 force/max_rate=false
 force/max_rate_hz=44100

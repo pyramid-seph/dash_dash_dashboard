@@ -4,6 +4,7 @@ extends Control
 signal request_accepted
 signal request_rejected
 
+
 @onready var curp_query_tab = %CurpQueryTab
 @onready var user_data_tab = %UserDataTab
 @onready var proof_of_life_tab = %ProofOfLifeTab

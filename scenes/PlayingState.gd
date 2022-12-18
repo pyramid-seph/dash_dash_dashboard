@@ -34,6 +34,7 @@ func _on_exit() -> void:
 	game.stamina_timer.paused = false
 	game.stamina_timer.stop()
 	game.gameplay_gui.challenge_container.visible = false
+	game.music_player.stop()
 
 
 func _reset_game_state() -> void:
@@ -108,6 +109,7 @@ func _setup_next_challenge() -> void:
 
 func _on_stamina_timer_timeout() -> void:
 	state_machine.change_state(state_machine.game_over_state)
+	game.music_player.stop()
 
 
 func _on_combo_started( multiplier, combo) -> void:
@@ -183,3 +185,5 @@ func _on_start_delay_container_timeout() -> void:
 	game.stamina_timer.paused = false
 	game.stamina_timer.start(game.stamina_sec)
 	game.gameplay_gui.challenge_container.visible = true
+	game.music_player.stream = game.music_bg
+	game.music_player.play()

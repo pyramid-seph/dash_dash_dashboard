@@ -106,6 +106,7 @@ config/icon="res://assets/icon.svg"
 [autoload]
 
 Utils="*res://autoload/Utils.gd"
+SfxManager="*res://autoload/SfxManager.gd"
 
 [display]
 

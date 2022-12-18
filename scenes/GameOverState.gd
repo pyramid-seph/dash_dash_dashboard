@@ -10,6 +10,7 @@ func _on_enter() -> void:
 
 func _handle_input(event: InputEvent) -> void:
 	if event.is_action_pressed("cancel"):
+		SfxManager.play(game.cancel_sfx)
 		state_machine.change_state(state_machine.title_screen_state)
 	elif event.is_action_pressed("accept"):
 		state_machine.change_state(state_machine.playing_state)

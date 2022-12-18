@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/second.wav-c2723ba142954a75db9dfdb601f51ff6.s
 
 [params]
 
-force/8_bit=false
+force/8_bit=true
 force/mono=false
 force/max_rate=false
 force/max_rate_hz=44100

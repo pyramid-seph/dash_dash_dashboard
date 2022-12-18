@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/hurt_1.wav-a1c2985345451dbc8d0f521a5dfa1636.s
 
 [params]
 
-force/8_bit=false
+force/8_bit=true
 force/mono=false
 force/max_rate=false
 force/max_rate_hz=44100
