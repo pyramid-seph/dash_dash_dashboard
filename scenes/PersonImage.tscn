@@ -6,29 +6,40 @@
 [ext_resource type="Texture2D" uid="uid://c252udt8r6fnf" path="res://assets/composite_person/mouth/mouth_00.png" id="4_s6ms3"]
 [ext_resource type="Texture2D" uid="uid://ceid25le5ljai" path="res://assets/composite_person/nose/nose_00.png" id="5_oe00e"]
 
-[node name="PersonImage" type="Control"]
-layout_mode = 3
-anchors_preset = 0
-size_flags_horizontal = 0
+[node name="PersonImage" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
 size_flags_vertical = 6
 script = ExtResource("1_2t7md")
 
 [node name="HeadTexture" type="TextureRect" parent="."]
-offset_right = 480.0
-offset_bottom = 480.0
+offset_left = 272.0
+offset_top = 240.0
+offset_right = 752.0
+offset_bottom = 720.0
 texture = ExtResource("2_phlhd")
 
 [node name="EyesTexture" type="TextureRect" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 272.0
+offset_top = 240.0
+offset_right = 752.0
+offset_bottom = 720.0
 texture = ExtResource("3_hksgd")
 
 [node name="MouthTexture" type="TextureRect" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 272.0
+offset_top = 240.0
+offset_right = 752.0
+offset_bottom = 720.0
 texture = ExtResource("4_s6ms3")
 
 [node name="NoseTexture" type="TextureRect" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 272.0
+offset_top = 240.0
+offset_right = 752.0
+offset_bottom = 720.0
 texture = ExtResource("5_oe00e")

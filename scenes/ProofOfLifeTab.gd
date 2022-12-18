@@ -2,7 +2,7 @@ extends VBoxContainer
 
 @export var title: String
 
-@onready var person_image := $Video/PersonImage as PersonImage
+@onready var person_image := $PersonImage as PersonImage
 
 
 func populate(person_data: PersonDataSource, person_descriptor: PersonDescriptor) -> void:

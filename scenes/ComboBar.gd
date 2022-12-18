@@ -4,7 +4,6 @@ extends Control
 
 @onready var progress_bar := %ProgressBar as TextureProgressBar
 @onready var multiplier_label := %MultiplierLabel as Label
-@onready var container := $VBoxContainer
 
 
 var multiplier: float:
@@ -27,5 +26,5 @@ func update(max_val: float, curr_val: float) -> void:
 
 
 func show_combo_bar(value: bool):
-	container.visible = value
+	visible = value
 	

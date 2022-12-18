@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://1yc6pjqt5yb" path="res://assets/ui_bar_foreground.png" id="2_pnaeh"]
 
 [node name="StaminaBar" type="VBoxContainer"]
+offset_right = 64.0
+offset_bottom = 38.0
 size_flags_vertical = 4
 script = ExtResource("1_rdhtp")
 
@@ -27,5 +29,5 @@ stretch_margin_right = 1
 stretch_margin_bottom = 1
 texture_under = ExtResource("2_pnaeh")
 texture_progress = ExtResource("2_pnaeh")
-tint_under = Color(1, 0, 0, 1)
+tint_under = Color(0, 0, 0, 1)
 tint_progress = Color(0, 0.501961, 0.501961, 1)

@@ -1,5 +1,5 @@
 class_name PersonImage
-extends Control
+extends CenterContainer
 
 @onready var eyes_rect := $EyesTexture as TextureRect
 @onready var head_rect := $HeadTexture as TextureRect

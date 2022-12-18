@@ -54,7 +54,7 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://scenes/PersonDescriptor.gd"
 }, {
-"base": "Control",
+"base": "CenterContainer",
 "class": &"PersonImage",
 "language": &"GDScript",
 "path": "res://scenes/PersonImage.gd"
@@ -110,7 +110,7 @@ Utils="*res://autoload/Utils.gd"
 [display]
 
 window/size/viewport_width=1024
-window/size/viewport_height=720
+window/size/viewport_height=960
 window/stretch/mode="viewport"
 
 [input]
