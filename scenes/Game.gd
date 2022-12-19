@@ -2,9 +2,10 @@ class_name Game
 extends Node
 
 
-@export var music_bg: AudioStream
+@export var bgm: AudioStream
 @export var accept_sfx: AudioStream
 @export var cancel_sfx: AudioStream
+@export var restrict_tries: int = 0
 @export var initial_delay_sec: float = 3.0
 @export var stamina_sec: float = 60.0
 @export var stamina_gain_sec: float = 10.0
@@ -30,6 +31,7 @@ var current_challenge: RequestChallenge:
 	set(value):
 		current_challenge = value
 		gameplay_gui.request_challenge = value
+var curr_tries: int = 0
 
 @onready var gameplay_gui := $GameplayGui as GameplayGui
 @onready var person_randomizer := $PersonRandomizer as PersonRandomizer

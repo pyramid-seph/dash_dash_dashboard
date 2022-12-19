@@ -23,6 +23,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func change_state(game_state: GameState) -> void:
+	# TODO Do not change if the state does not change
 	if _curr_state: _curr_state._on_exit()
 	_curr_state = game_state
 	_curr_state._on_enter()

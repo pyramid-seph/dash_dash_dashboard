@@ -42,6 +42,7 @@ func _reset_game_state() -> void:
 	game.correct_guesses = 0
 	game.max_combo_multiplier = game.combo_mngr.MIN_MULTIPLIER
 	game.max_combo = 0
+	game.curr_tries = 0
 	# Hi score will not be reset
 
 
@@ -103,7 +104,12 @@ func _create_request_challenge() -> RequestChallenge:
 	return challenge
 
 
-func _setup_next_challenge() -> void:
+func _setup_next_challenge() -> void:	
+	if game.restrict_tries > 0:
+		game.curr_tries += 1
+		if game.curr_tries > game.restrict_tries:
+			_on_stamina_timer_timeout()
+			return
 	game.current_challenge = _create_request_challenge()
 
 
@@ -152,11 +158,6 @@ func _on_failed_request_guess() -> void:
 
 
 func _on_request_rejected() -> void:
-	if game.current_challenge == null:
-		print("No challenge to check. Creating a new one.")
-		_setup_next_challenge()
-		return
-		
 	if game.current_challenge.should_be_accepted():
 		_on_failed_request_guess()
 	else:
@@ -165,11 +166,6 @@ func _on_request_rejected() -> void:
 
 
 func _on_request_accepted() -> void:
-	if game.current_challenge == null:
-		print("No challenge to check. Creating a new one.")
-		_setup_next_challenge()
-		return
-		
 	if game.current_challenge.should_be_accepted():
 		_on_correct_request_guess()
 	else:
@@ -185,5 +181,5 @@ func _on_start_delay_container_timeout() -> void:
 	game.stamina_timer.paused = false
 	game.stamina_timer.start(game.stamina_sec)
 	game.gameplay_gui.challenge_container.visible = true
-	game.music_player.stream = game.music_bg
+	game.music_player.stream = game.bgm
 	game.music_player.play()
