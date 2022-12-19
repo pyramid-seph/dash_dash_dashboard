@@ -21,7 +21,9 @@ script = ExtResource("1_7uuqv")
 music_bg = ExtResource("2_arets")
 accept_sfx = ExtResource("3_87f72")
 cancel_sfx = ExtResource("4_qcsay")
-stamina_sec = 5.0
+stamina_sec = 30.0
+stamina_gain_sec = 5.0
+stamina_lose_sec = 3.0
 
 [node name="GameStateMachine" type="Node" parent="."]
 process_mode = 3
