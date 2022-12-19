@@ -5,7 +5,7 @@ signal timeout
 
 
 @export var tick_sfx: AudioStream
-@export var bang: AudioStream
+@export var bang_sfx: AudioStream
 
 var _curr_second: int = -1
 
@@ -34,6 +34,6 @@ func stop() -> void:
 
 
 func _on_timer_timeout() -> void:
-	SfxManager.play(bang)
+	SfxManager.play(bang_sfx)
 	visible = false
 	timeout.emit()
