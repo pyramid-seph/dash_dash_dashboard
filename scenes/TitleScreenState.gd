@@ -6,7 +6,7 @@ func _on_enter() -> void:
 
 
 func _handle_input(event: InputEvent) -> void:
-	if event.is_action_pressed("exit"):
+	if OS.get_name() != "Web" && event.is_action_pressed("exit"):
 		SfxManager.play(game.cancel_sfx)
 		get_tree().quit()
 	elif event.is_action_pressed("accept"):
