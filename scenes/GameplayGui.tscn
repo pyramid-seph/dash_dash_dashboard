@@ -34,6 +34,7 @@ script = ExtResource("1_6yfmw")
 
 [node name="TitleScreen" type="PanelContainer" parent="."]
 visible = false
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -41,44 +42,48 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="TitleScreen"]
+layout_mode = 2
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 16
 
 [node name="CenterContainer" type="CenterContainer" parent="TitleScreen/MarginContainer"]
-offset_left = 32.0
-offset_top = 16.0
-offset_right = 792.0
-offset_bottom = 180.0
+layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TitleScreen/MarginContainer/CenterContainer"]
-offset_right = 760.0
-offset_bottom = 164.0
+layout_mode = 2
 
 [node name="TitleLabel" type="Label" parent="TitleScreen/MarginContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 96
 text = "DASH DASH DASHBOARD!"
 horizontal_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="TitleScreen/MarginContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
 
 [node name="PlayLabel" type="Label" parent="TitleScreen/MarginContainer/CenterContainer/VBoxContainer"]
-text = "[Spacebar] Play!"
+layout_mode = 2
+text = "[SPACEBAR] Play!"
 horizontal_alignment = 1
 
 [node name="ExitLabel" type="Label" parent="TitleScreen/MarginContainer"]
-offset_left = 32.0
-offset_top = 128.0
-offset_right = 222.0
-offset_bottom = 180.0
+layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 text = "[ESC] Exit"
 script = ExtResource("3_0p3qk")
 
+[node name="CreditsRollLabel" type="Label" parent="TitleScreen/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "[C] Credits"
+
 [node name="GameContainer" type="PanelContainer" parent="."]
 visible = false
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -86,12 +91,15 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GameContainer"]
+layout_mode = 2
 
 [node name="HUD" type="HBoxContainer" parent="GameContainer/VBoxContainer"]
+layout_mode = 2
 size_flags_vertical = 0
 alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="GameContainer/VBoxContainer/HUD"]
+layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 16
@@ -100,15 +108,14 @@ theme_override_constants/margin_bottom = 16
 
 [node name="StaminaTimer" parent="GameContainer/VBoxContainer/HUD/MarginContainer" instance=ExtResource("2_0eg3r")]
 unique_name_in_owner = true
-offset_left = 32.0
-offset_top = 16.0
-offset_right = 102.0
-offset_bottom = 56.0
+layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="VSeparator" type="VSeparator" parent="GameContainer/VBoxContainer/HUD"]
+layout_mode = 2
 
 [node name="MarginContainer2" type="MarginContainer" parent="GameContainer/VBoxContainer/HUD"]
+layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 16
@@ -117,15 +124,14 @@ theme_override_constants/margin_bottom = 16
 
 [node name="ScorePanel" parent="GameContainer/VBoxContainer/HUD/MarginContainer2" instance=ExtResource("3_6jtmv")]
 unique_name_in_owner = true
-offset_left = 32.0
-offset_top = 16.0
-offset_right = 214.0
-offset_bottom = 212.0
+layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="VSeparator2" type="VSeparator" parent="GameContainer/VBoxContainer/HUD"]
+layout_mode = 2
 
 [node name="MarginContainer3" type="MarginContainer" parent="GameContainer/VBoxContainer/HUD"]
+layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 16
@@ -134,27 +140,26 @@ theme_override_constants/margin_bottom = 16
 
 [node name="RequestComboCounter" parent="GameContainer/VBoxContainer/HUD/MarginContainer3" instance=ExtResource("3_fqvos")]
 unique_name_in_owner = true
-anchors_preset = 0
-anchor_right = 0.0
-offset_left = 32.0
-offset_top = -20.0
-offset_right = 32.0
-offset_bottom = 52.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 
 [node name="HSeparator" type="HSeparator" parent="GameContainer/VBoxContainer"]
+layout_mode = 2
 
 [node name="Control" type="PanelContainer" parent="GameContainer/VBoxContainer"]
+layout_mode = 2
 size_flags_vertical = 3
 
 [node name="ChallengeContainer" type="VBoxContainer" parent="GameContainer/VBoxContainer/Control"]
 unique_name_in_owner = true
 visible = false
+layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="ChallengeTabs" type="TabContainer" parent="GameContainer/VBoxContainer/Control/ChallengeContainer"]
 unique_name_in_owner = true
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 64
@@ -163,14 +168,12 @@ script = ExtResource("5_u14hm")
 
 [node name="UserDataTab" type="HBoxContainer" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs"]
 unique_name_in_owner = true
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 73.0
+layout_mode = 2
 script = ExtResource("3_g15n0")
 title = "User provided data"
 
 [node name="MarginContainer" type="MarginContainer" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs/UserDataTab"]
+layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 16
@@ -178,32 +181,34 @@ theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 16
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs/UserDataTab/MarginContainer"]
-offset_left = 32.0
-offset_top = 16.0
-offset_right = 396.0
-offset_bottom = 172.0
+layout_mode = 2
 
 [node name="FullName" type="Label" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs/UserDataTab/MarginContainer/VBoxContainer"]
+layout_mode = 2
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 32
 text = "Name: My othercool full name"
 
 [node name="Age" type="Label" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs/UserDataTab/MarginContainer/VBoxContainer"]
+layout_mode = 2
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 32
 text = "Age: My Cool Age"
 
 [node name="Address" type="Label" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs/UserDataTab/MarginContainer/VBoxContainer"]
+layout_mode = 2
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 32
 text = "Address My Cool Address"
 
 [node name="Curp" type="Label" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs/UserDataTab/MarginContainer/VBoxContainer"]
+layout_mode = 2
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 32
 text = "Address My Cool Address"
 
 [node name="MarginContainer2" type="MarginContainer" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs/UserDataTab"]
+layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 16
@@ -211,33 +216,31 @@ theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 16
 
 [node name="PersonImage" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs/UserDataTab/MarginContainer2" instance=ExtResource("3_vdsu5")]
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 32.0
-offset_top = 16.0
-offset_right = 512.0
-offset_bottom = 496.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 
 [node name="ProofOfLifeTab" type="VBoxContainer" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs"]
 unique_name_in_owner = true
 visible = false
+layout_mode = 2
 script = ExtResource("4_1il7u")
 title = "Life proof data"
 
 [node name="PersonImage" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs/ProofOfLifeTab" instance=ExtResource("3_vdsu5")]
+layout_mode = 2
 size_flags_horizontal = 1
 size_flags_vertical = 3
 
 [node name="CurpQueryTab" type="HBoxContainer" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs"]
 unique_name_in_owner = true
 visible = false
+layout_mode = 2
 script = ExtResource("2_kph81")
 title = "XCrash data"
 
 [node name="MarginContainer" type="MarginContainer" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs/CurpQueryTab"]
+layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 16
@@ -245,39 +248,43 @@ theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 16
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs/CurpQueryTab/MarginContainer"]
-offset_left = 32.0
-offset_top = 16.0
-offset_right = 396.0
-offset_bottom = 172.0
+layout_mode = 2
 
 [node name="FullName" type="Label" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs/CurpQueryTab/MarginContainer/VBoxContainer"]
+layout_mode = 2
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 32
 text = "Name: My othercool full name"
 
 [node name="Age" type="Label" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs/CurpQueryTab/MarginContainer/VBoxContainer"]
+layout_mode = 2
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 32
 text = "Age: My Cool Age"
 
 [node name="Address" type="Label" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs/CurpQueryTab/MarginContainer/VBoxContainer"]
+layout_mode = 2
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 32
 text = "Address My Cool Address"
 
 [node name="Curp" type="Label" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/ChallengeTabs/CurpQueryTab/MarginContainer/VBoxContainer"]
+layout_mode = 2
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 32
 text = "Address My Cool Address"
 
 [node name="CommitmentButtons" type="HBoxContainer" parent="GameContainer/VBoxContainer/Control/ChallengeContainer"]
+layout_mode = 2
 
 [node name="RejectButton" type="Button" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/CommitmentButtons"]
+layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 112
 text = "Reject"
 
 [node name="AcceptButton" type="Button" parent="GameContainer/VBoxContainer/Control/ChallengeContainer/CommitmentButtons"]
+layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 112
 text = "Accept
@@ -286,16 +293,17 @@ text = "Accept
 [node name="LoadingNextChallenge" type="CenterContainer" parent="GameContainer/VBoxContainer/Control"]
 unique_name_in_owner = true
 visible = false
+layout_mode = 2
 script = ExtResource("11_cex2j")
 correct_guess_sfx = ExtResource("12_vrfav")
 wrong_guess_sfx = ExtResource("13_wrg3o")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GameContainer/VBoxContainer/Control/LoadingNextChallenge"]
-offset_right = 171.0
-offset_bottom = 64.0
+layout_mode = 2
 
 [node name="ResultLabel" type="Label" parent="GameContainer/VBoxContainer/Control/LoadingNextChallenge/VBoxContainer"]
 unique_name_in_owner = true
+layout_mode = 2
 size_flags_horizontal = 4
 text = "Ready?..."
 horizontal_alignment = 1
@@ -303,6 +311,7 @@ horizontal_alignment = 1
 [node name="TimerBar" parent="GameContainer/VBoxContainer/Control/LoadingNextChallenge/VBoxContainer" instance=ExtResource("11_xp18w")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 8)
+layout_mode = 2
 size_flags_horizontal = 4
 step = 0.0
 value = 100.0
@@ -316,13 +325,13 @@ tint_progress = Color(1, 0.376471, 0.027451, 1)
 [node name="StartDelayContainer" type="CenterContainer" parent="GameContainer/VBoxContainer/Control"]
 unique_name_in_owner = true
 visible = false
+layout_mode = 2
 script = ExtResource("13_vkelh")
 tick_sfx = ExtResource("17_2qlkh")
 bang_sfx = ExtResource("18_xal8g")
 
 [node name="DelayLabel" type="Label" parent="GameContainer/VBoxContainer/Control/StartDelayContainer"]
-offset_right = 240.0
-offset_bottom = 603.0
+layout_mode = 2
 theme_override_font_sizes/font_size = 600
 text = "3"
 
@@ -332,6 +341,7 @@ one_shot = true
 [node name="PausePanel" type="PanelContainer" parent="."]
 process_mode = 3
 visible = false
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -339,26 +349,21 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="PausePanel"]
+layout_mode = 2
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 16
 
 [node name="Pause" type="Label" parent="PausePanel/MarginContainer"]
-offset_left = 32.0
-offset_top = 16.0
-offset_right = 512.0
-offset_bottom = 259.0
+layout_mode = 2
 theme_override_font_sizes/font_size = 240
 text = "PAUSA"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Exit" type="Label" parent="PausePanel/MarginContainer"]
-offset_left = 32.0
-offset_top = 207.0
-offset_right = 374.0
-offset_bottom = 259.0
+layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 text = "[ESC] Title Screen"
@@ -366,6 +371,7 @@ text = "[ESC] Title Screen"
 [node name="GameOverResults" type="PanelContainer" parent="."]
 process_mode = 3
 visible = false
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -375,20 +381,19 @@ script = ExtResource("6_cvt1o")
 stamina_depleted_sfx = ExtResource("19_0kxr8")
 
 [node name="MarginContainer" type="MarginContainer" parent="GameOverResults"]
+layout_mode = 2
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 16
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GameOverResults/MarginContainer"]
-offset_left = 32.0
-offset_top = 16.0
-offset_right = 792.0
-offset_bottom = 340.0
+layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="GameOver" type="Label" parent="GameOverResults/MarginContainer/VBoxContainer"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 96
 text = "IT'S GAME OVER, MAN!"
 horizontal_alignment = 1
@@ -396,40 +401,39 @@ vertical_alignment = 1
 
 [node name="MaxCombo" type="Label" parent="GameOverResults/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
+layout_mode = 2
 text = "100"
 
 [node name="MaxMultiplier" type="Label" parent="GameOverResults/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
+layout_mode = 2
 text = "1.50"
 
 [node name="BonusPoints" type="Label" parent="GameOverResults/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
+layout_mode = 2
 text = "Bonus! 999"
 
 [node name="TotalScore" type="Label" parent="GameOverResults/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
+layout_mode = 2
 text = "99999"
 
 [node name="TryAgainLabel" type="Label" parent="GameOverResults/MarginContainer"]
-offset_left = 393.0
-offset_top = 288.0
-offset_right = 792.0
-offset_bottom = 340.0
+layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 text = "[SPACEBAR] Try again!"
 
 [node name="ToTitleScreenLabel" type="Label" parent="GameOverResults/MarginContainer"]
-offset_left = 32.0
-offset_top = 288.0
-offset_right = 374.0
-offset_bottom = 340.0
+layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 text = "[ESC] Title screen"
 
 [node name="QuotePanel" type="PanelContainer" parent="."]
 visible = false
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -437,16 +441,14 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="QuotePanel"]
+layout_mode = 2
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 16
 
 [node name="Label" type="RichTextLabel" parent="QuotePanel/MarginContainer"]
-offset_left = 32.0
-offset_top = 16.0
-offset_right = 431.0
-offset_bottom = 98.0
+layout_mode = 2
 size_flags_vertical = 4
 bbcode_enabled = true
 text = "[p align=center][font size=48]\"Playing a game is the voluntary attempt to overcome unnecessary obstacles.\"[/font][/p]
@@ -454,16 +456,14 @@ text = "[p align=center][font size=48]\"Playing a game is the voluntary attempt 
 fit_content_height = true
 
 [node name="StartGameLabel" type="Label" parent="QuotePanel/MarginContainer"]
-offset_left = 32.0
-offset_top = 46.0
-offset_right = 431.0
-offset_bottom = 98.0
+layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 text = "[SPACEBAR] Start game"
 
 [node name="IntructionsPanel" type="PanelContainer" parent="."]
 visible = false
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -471,40 +471,81 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="IntructionsPanel"]
+layout_mode = 2
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 16
 
 [node name="Label" type="RichTextLabel" parent="IntructionsPanel/MarginContainer"]
-offset_left = 32.0
-offset_top = 16.0
-offset_right = 279.0
-offset_bottom = 68.0
+layout_mode = 2
 bbcode_enabled = true
 text = "[p align=center][font size=80]Instructions:[/font][/p]
 [font size=48]
-[ul]Check the data for any inconsistencies.[/ul]
+* Check the data for any inconsistencies.
 
-[ul]Click \"reject\" if you find any inconsistencies between the data presented on the content of the tabs.[/ul]
+* Click \"reject\" if you find any inconsistencies between the data presented on the content of the tabs.
 
-[ul]Click \"accept\" if you think everything checks out.[/ul]
+* Click \"accept\" if you think everything checks out.
 
-[ul]Every time you guess correctly, you [u]gain[/u] some [color=teal]stamina[/color] and you also start or extend your  [color=yellow]combo[/color] counter.[/ul]
+* Every time you guess correctly, you [u]gain[/u] some [color=teal]stamina[/color] and you also start or extend your [color=yellow]combo[/color] counter.
 
-[ul]If your guess is incorrect, you [u]lose[/u] some [color=teal]stamina[/color] and  your current  [color=yellow]combo[/color] [shake rate=10 level=10]breaks[/shake].[/ul]
+* If your guess is incorrect, you [u]lose[/u] some [color=teal]stamina[/color] and  your current [color=yellow]combo[/color] [shake rate=10 level=10]breaks[/shake].
 
-[ul]If your stamina reaches zero,  [color=red]it's game over, man![/color][/ul]
+* If your stamina reaches zero,  [color=red]it's game over, man![/color]
 [/font]"
 
 [node name="ExitLabel" type="Label" parent="IntructionsPanel/MarginContainer"]
-offset_left = 32.0
-offset_top = 16.0
-offset_right = 279.0
-offset_bottom = 68.0
+layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 text = "[SPACEBAR] OK"
+
+[node name="CreditsContainer" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CreditsContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 16
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CreditsContainer/MarginContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[p align=center][font size=96] — Credits —[/font][/p]
+
+[p align=center][font size=72][color=yellow]Programmer[/color][/font][/p]
+[p align=center][font size=48]Pyramid Seph[/font][/p]
+
+[p align=center][font size=72][color=yellow]Testers[/color][/font][/p]
+[p align=center][font size=48]Fabi[/font][/p]
+[p align=center][font size=48]Gi[/font][/p]
+[p align=center][font size=48]Pintor[/font][/p]
+[p align=center][font size=48]Té[/font][/p]
+
+[p align=center][font size=72][color=yellow]Wildcard[/color][/font][/p]
+[p align=center][font size=48]Arasan[/font][/p]
+
+
+[p align=center][font size=96]— Acknowledgements —[/font][/p]
+
+[p align=center][font size=72][color=yellow]Fonts[/color][/font][/p]
+[p align=center][font size=48]VT323 by Peter Hull[/font][/p]"
+fit_content_height = true
+
+[node name="StartGameLabel" type="Label" parent="CreditsContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+text = "[ESC] Title Screen"
 
 [connection signal="pressed" from="GameContainer/VBoxContainer/Control/ChallengeContainer/CommitmentButtons/RejectButton" to="." method="_on_reject_button_pressed"]
 [connection signal="pressed" from="GameContainer/VBoxContainer/Control/ChallengeContainer/CommitmentButtons/AcceptButton" to="." method="_on_accept_button_pressed"]

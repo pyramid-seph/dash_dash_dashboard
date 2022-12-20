@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c2ruek3osbr1b"]
+[gd_scene load_steps=17 format=3 uid="uid://c2ruek3osbr1b"]
 
 [ext_resource type="Script" path="res://scenes/Game.gd" id="1_7uuqv"]
 [ext_resource type="PackedScene" path="res://scenes/PersonRandomizer.tscn" id="2_11wco"]
@@ -15,13 +15,14 @@
 [ext_resource type="PackedScene" uid="uid://cfe280vgd268u" path="res://scenes/GameplayGui.tscn" id="5_pdk4a"]
 [ext_resource type="Script" path="res://scenes/QuoteState.gd" id="5_xam4v"]
 [ext_resource type="Script" path="res://scenes/GameOverState.gd" id="6_i1mgl"]
+[ext_resource type="Script" path="res://scenes/CreditsRollState.gd" id="7_teqt1"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_7uuqv")
 bgm = ExtResource("2_arets")
 accept_sfx = ExtResource("3_87f72")
 cancel_sfx = ExtResource("4_qcsay")
-stamina_sec = 30.0
+stamina_sec = 12.0
 stamina_gain_sec = 5.0
 stamina_lose_sec = 3.0
 
@@ -31,6 +32,9 @@ script = ExtResource("2_l1akh")
 
 [node name="TitleScreenState" type="Node" parent="GameStateMachine"]
 script = ExtResource("3_8lc77")
+
+[node name="CreditsRollState" type="Node" parent="GameStateMachine"]
+script = ExtResource("7_teqt1")
 
 [node name="InstructionsState" type="Node" parent="GameStateMachine"]
 script = ExtResource("4_am7d0")

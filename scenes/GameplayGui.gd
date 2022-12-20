@@ -21,6 +21,7 @@ signal request_rejected
 @onready var challenge_container := %ChallengeContainer
 @onready var start_delay_container := %StartDelayContainer
 @onready var challenge_tabs := %ChallengeTabs as TabContainer
+@onready var credits_container := $CreditsContainer
 
 
 var request_challenge: RequestChallenge:
@@ -54,6 +55,10 @@ func stop_next_challenge() -> void:
 func prepare_next_challenge(duration_sec: float, is_correct: bool, challenge: RequestChallenge) -> void:
 	challenge_container.visible = false
 	loading_next_challenge.start(duration_sec, is_correct, challenge)
+
+
+func change_credits_container_visibility(value: bool) -> void:
+	credits_container.visible = value
 
 
 func change_game_screen_visibility(value: bool) -> void:

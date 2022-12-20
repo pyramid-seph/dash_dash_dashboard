@@ -12,6 +12,7 @@ var _curr_state: GameState
 @onready var pause_state: GameState = $PauseState
 @onready var playing_state: GameState = $PlayingState
 @onready var game_over_state: GameState = $GameOverState
+@onready var credits_roll_state: GameState = $CreditsRollState
 
 
 func _process(delta: float) -> void:
