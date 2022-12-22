@@ -8,6 +8,7 @@ func _on_enter() -> void:
 
 func _handle_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
+		SfxManager.play(game.accept_sfx)
 		state_machine.revert_to_interrupted_state()
 	if event.is_action_pressed("exit"):
 		SfxManager.play(game.cancel_sfx)
