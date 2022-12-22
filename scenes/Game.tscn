@@ -22,7 +22,7 @@ script = ExtResource("1_7uuqv")
 bgm = ExtResource("2_2f0yv")
 accept_sfx = ExtResource("3_87f72")
 cancel_sfx = ExtResource("4_qcsay")
-stamina_sec = 12.0
+stamina_sec = 20.0
 stamina_gain_sec = 5.0
 stamina_lose_sec = 3.0
 
