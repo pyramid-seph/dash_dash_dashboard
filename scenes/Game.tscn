@@ -1,8 +1,8 @@
 [gd_scene load_steps=17 format=3 uid="uid://c2ruek3osbr1b"]
 
 [ext_resource type="Script" path="res://scenes/Game.gd" id="1_7uuqv"]
+[ext_resource type="AudioStream" uid="uid://cj6hwi86d5rh7" path="res://assets/music/inspectorj__ticking-clock-a.wav" id="2_2f0yv"]
 [ext_resource type="PackedScene" path="res://scenes/PersonRandomizer.tscn" id="2_11wco"]
-[ext_resource type="AudioStream" uid="uid://dvqagtnqtrimm" path="res://assets/music/horrible.wav" id="2_arets"]
 [ext_resource type="Script" path="res://scenes/GameStateMachine.gd" id="2_l1akh"]
 [ext_resource type="Script" path="res://scenes/TitleScreenState.gd" id="3_8lc77"]
 [ext_resource type="AudioStream" uid="uid://3hncw743y05x" path="res://assets/sfx/accept_sfx.wav" id="3_87f72"]
@@ -19,7 +19,7 @@
 
 [node name="Game" type="Node"]
 script = ExtResource("1_7uuqv")
-bgm = ExtResource("2_arets")
+bgm = ExtResource("2_2f0yv")
 accept_sfx = ExtResource("3_87f72")
 cancel_sfx = ExtResource("4_qcsay")
 stamina_sec = 12.0
@@ -64,4 +64,6 @@ multiplier_delta = 0.1
 [node name="GameplayGui" parent="." instance=ExtResource("5_pdk4a")]
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_2f0yv")
+pitch_scale = 2.0
 bus = &"Music"
