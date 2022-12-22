@@ -520,26 +520,29 @@ theme_override_constants/margin_bottom = 16
 [node name="RichTextLabel" type="RichTextLabel" parent="CreditsContainer/MarginContainer"]
 layout_mode = 2
 bbcode_enabled = true
-text = "[p align=center][font size=96] — Credits —[/font][/p]
+text = "[p align=center][font size=64]— Credits —[/font][/p]
 
-[p align=center][font size=72][color=yellow]Programmer[/color][/font][/p]
-[p align=center][font size=48]Pyramid Seph[/font][/p]
+[p align=center][font size=56][color=yellow]Programmer[/color][/font][/p]
+[p align=center][font size=40]Pyramid Seph[/font][/p]
 
-[p align=center][font size=72][color=yellow]Testers[/color][/font][/p]
-[p align=center][font size=48]Fabi[/font][/p]
-[p align=center][font size=48]Gi[/font][/p]
-[p align=center][font size=48]Pintor[/font][/p]
-[p align=center][font size=48]Té[/font][/p]
+[p align=center][font size=56][color=yellow]Testers[/color][/font][/p]
+[p align=center][font size=40]Fabi[/font][/p]
+[p align=center][font size=40]Gi[/font][/p]
+[p align=center][font size=40]Pintor[/font][/p]
+[p align=center][font size=40]Té[/font][/p]
 
-[p align=center][font size=72][color=yellow]Wildcard[/color][/font][/p]
-[p align=center][font size=48]Arasan[/font][/p]
+[p align=center][font size=56][color=yellow]Wildcard[/color][/font][/p]
+[p align=center][font size=40]Arasan[/font][/p]
 
+[p align=center][font size=64]— Attributions —[/font][/p]
 
-[p align=center][font size=96]— Acknowledgements —[/font][/p]
+[p align=center][font size=56][color=yellow]Fonts[/color][/font][/p]
+[p align=center][font size=40]\"VT323-Regular.ttf\": Copyright 2011, The VT323 Project Authors (peter.hull@oikoi.com) (licensed under the SIL Open Font License)[/font][/p]
 
-[p align=center][font size=72][color=yellow]Fonts[/color][/font][/p]
-[p align=center][font size=48]VT323 by Peter Hull[/font][/p]"
+[p align=center][font size=56][color=yellow]SFX[/color][/font][/p]
+[p align=center][font size=40]\"Ticking Clock, A.wav\" by InspectorJ (www.jshaw.co.uk) of Freesound.org (licensed under the Attribution 4.0 License)[/font][/p]"
 fit_content_height = true
+shortcut_keys_enabled = false
 
 [node name="StartGameLabel" type="Label" parent="CreditsContainer/MarginContainer"]
 layout_mode = 2
