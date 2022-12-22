@@ -493,6 +493,8 @@ text = "[p align=center][font size=80]Instructions:[/font][/p]
 * If your guess is incorrect, you [u]lose[/u] some [color=teal]stamina[/color] and  your current [color=yellow]combo[/color] [shake rate=10 level=10]breaks[/shake].
 
 * If your stamina reaches zero,  [color=red]it's game over, man![/color]
+
+* You can pause the game by typing \"P\".
 [/font]"
 
 [node name="ExitLabel" type="Label" parent="IntructionsPanel/MarginContainer"]
@@ -527,7 +529,7 @@ text = "[p align=center][font size=64]— Credits —[/font][/p]
 
 [p align=center][font size=56][color=yellow]Testers[/color][/font][/p]
 [p align=center][font size=40]Fabi[/font][/p]
-[p align=center][font size=40]Gi[/font][/p]
+[p align=center][font size=40]Giselle Olvera Neria[/font][/p]
 [p align=center][font size=40]Pintor[/font][/p]
 [p align=center][font size=40]Té[/font][/p]
 
