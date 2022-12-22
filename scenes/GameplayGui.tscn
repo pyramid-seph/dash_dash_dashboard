@@ -358,7 +358,7 @@ theme_override_constants/margin_bottom = 16
 [node name="Pause" type="Label" parent="PausePanel/MarginContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 240
-text = "PAUSA"
+text = "PAUSE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
