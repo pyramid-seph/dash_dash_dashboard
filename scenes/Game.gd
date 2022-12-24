@@ -42,4 +42,5 @@ var curr_tries: int = 0
 
 
 func _ready():
+	hi_score = GameData.hi_score
 	state_machine.start(self)

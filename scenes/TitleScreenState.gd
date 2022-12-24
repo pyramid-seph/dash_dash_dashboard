@@ -2,6 +2,7 @@ extends GameState
 
 
 func _on_enter() -> void:
+	game.gameplay_gui.update_title_hi_score(GameData.hi_score)
 	game.gameplay_gui.change_title_screen_visibility(true)
 
 

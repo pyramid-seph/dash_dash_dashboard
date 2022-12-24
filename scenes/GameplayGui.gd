@@ -22,6 +22,7 @@ signal request_rejected
 @onready var start_delay_container := %StartDelayContainer
 @onready var challenge_tabs := %ChallengeTabs as TabContainer
 @onready var credits_container := $CreditsContainer
+@onready var hi_score_label := %HiScoreLabel as Label
 
 
 var request_challenge: RequestChallenge:
@@ -38,6 +39,10 @@ var request_challenge: RequestChallenge:
 			curp_query_tab.populate(value.person_data_source, value.curp_query_person)
 			user_data_tab.populate(value.person_data_source, value.original_person)
 			proof_of_life_tab.populate(value.person_data_source, value.proof_of_life_person)
+
+
+func update_title_hi_score(value: int) -> void:
+	hi_score_label.text = "High Score: %s" % value
 
 
 func start_initial_delay(time_sec: float) -> void:

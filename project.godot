@@ -107,6 +107,7 @@ config/icon="res://assets/icon.svg"
 
 Utils="*res://autoload/Utils.gd"
 SfxManager="*res://autoload/SfxManager.gd"
+GameData="*res://autoload/GameData.gd"
 
 [display]
 

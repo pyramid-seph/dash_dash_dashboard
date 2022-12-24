@@ -5,6 +5,8 @@ func _on_enter() -> void:
 	var bonus_points = int(game.max_combo * game.max_combo_multiplier * game.base_bonus_points)
 	var old_score = game.score
 	game.score += bonus_points
+	GameData.hi_score = game.hi_score
+	GameData.save()
 	game.gameplay_gui.show_results(game.max_combo, game.max_combo_multiplier, bonus_points, game.score, old_score, game.base_bonus_points)
 
 
