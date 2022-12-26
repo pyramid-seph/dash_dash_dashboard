@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5i2qviw4cmu2"]
+
+[ext_resource type="Texture2D" uid="uid://1yc6pjqt5yb" path="res://assets/ui_bar_foreground.png" id="1_0hnkw"]
+[ext_resource type="Script" path="res://scenes/ComboBar.gd" id="1_o0wj5"]
+
+[node name="ComboBar" type="VBoxContainer"]
+visible = false
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 62.0
+grow_horizontal = 2
+script = ExtResource("1_o0wj5")
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+offset_right = 1024.0
+offset_bottom = 26.0
+theme_override_font_sizes/font_size = 24
+text = "COMBO!!!"
+horizontal_alignment = 1
+
+[node name="ProgressBar" type="TextureProgressBar" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 8)
+offset_top = 30.0
+offset_right = 1024.0
+offset_bottom = 38.0
+step = 0.0
+value = 100.0
+fill_mode = 6
+nine_patch_stretch = true
+stretch_margin_left = 1
+stretch_margin_top = 1
+stretch_margin_right = 1
+stretch_margin_bottom = 1
+texture_under = ExtResource("1_0hnkw")
+texture_progress = ExtResource("1_0hnkw")
+tint_under = Color(0, 0, 0, 1)
+tint_progress = Color(1, 1, 0, 1)
+
+[node name="MultiplierLabel" type="Label" parent="."]
+unique_name_in_owner = true
+offset_top = 42.0
+offset_right = 1024.0
+offset_bottom = 68.0
+theme_override_font_sizes/font_size = 24
+text = "99 x 3.0"
+horizontal_alignment = 1

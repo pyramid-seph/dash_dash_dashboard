@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://bol70ddbnwtv6"]
+
+[ext_resource type="Script" path="res://scenes/PersonImage.gd" id="1_2t7md"]
+[ext_resource type="Texture2D" uid="uid://chto4sp4klb34" path="res://assets/composite_person/head/head_00.png" id="2_phlhd"]
+[ext_resource type="Texture2D" uid="uid://b4y7jt2048eix" path="res://assets/composite_person/eyes/eyes_00.png" id="3_hksgd"]
+[ext_resource type="Texture2D" uid="uid://c252udt8r6fnf" path="res://assets/composite_person/mouth/mouth_00.png" id="4_s6ms3"]
+[ext_resource type="Texture2D" uid="uid://ceid25le5ljai" path="res://assets/composite_person/nose/nose_00.png" id="5_oe00e"]
+
+[node name="PersonImage" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+script = ExtResource("1_2t7md")
+
+[node name="HeadTexture" type="TextureRect" parent="."]
+offset_left = 272.0
+offset_top = 240.0
+offset_right = 752.0
+offset_bottom = 720.0
+texture = ExtResource("2_phlhd")
+
+[node name="EyesTexture" type="TextureRect" parent="."]
+offset_left = 272.0
+offset_top = 240.0
+offset_right = 752.0
+offset_bottom = 720.0
+texture = ExtResource("3_hksgd")
+
+[node name="MouthTexture" type="TextureRect" parent="."]
+offset_left = 272.0
+offset_top = 240.0
+offset_right = 752.0
+offset_bottom = 720.0
+texture = ExtResource("4_s6ms3")
+
+[node name="NoseTexture" type="TextureRect" parent="."]
+offset_left = 272.0
+offset_top = 240.0
+offset_right = 752.0
+offset_bottom = 720.0
+texture = ExtResource("5_oe00e")

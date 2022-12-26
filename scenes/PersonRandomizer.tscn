@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scenes/PersonRandomizer.gd" id="1_okli0"]
+[ext_resource type="Resource" path="res://resources/DebugPersonData.tres" id="2_qmgf1"]
+
+[node name="PersonRandomizer" type="Node"]
+script = ExtResource("1_okli0")
+person_data_source = ExtResource("2_qmgf1")

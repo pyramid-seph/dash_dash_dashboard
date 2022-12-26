@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://hq3mhsieof3k"]
+
+[ext_resource type="Script" path="res://scenes/ComboManager.gd" id="1_qjblj"]
+[ext_resource type="PackedScene" uid="uid://bqjywyns0o5n8" path="res://scenes/ClampedTimer.tscn" id="2_luim2"]
+
+[node name="ComboManager" type="Node"]
+script = ExtResource("1_qjblj")
+
+[node name="ClampedTime" parent="." instance=ExtResource("2_luim2")]
+
+[connection signal="timeout" from="ClampedTime" to="." method="_on_clamped_time_timeout"]
